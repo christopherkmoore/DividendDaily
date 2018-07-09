@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03180A4320F2F9A60048CDC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03180A4220F2F9A60048CDC0 /* AppDelegate.swift */; };
+		03180A4520F2F9A60048CDC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03180A4420F2F9A60048CDC0 /* ViewController.swift */; };
+		03180A4820F2F9A60048CDC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03180A4620F2F9A60048CDC0 /* Main.storyboard */; };
+		03180A4B20F2F9A60048CDC0 /* DividendDaily.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03180A4920F2F9A60048CDC0 /* DividendDaily.xcdatamodeld */; };
+		03180A4D20F2F9A70048CDC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03180A4C20F2F9A70048CDC0 /* Assets.xcassets */; };
+		03180A5020F2F9A70048CDC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03180A4E20F2F9A70048CDC0 /* LaunchScreen.storyboard */; };
+		03180A5B20F2F9A70048CDC0 /* DividendDailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03180A5A20F2F9A70048CDC0 /* DividendDailyTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03180A5720F2F9A70048CDC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03180A3720F2F9A60048CDC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03180A3E20F2F9A60048CDC0;
+			remoteInfo = DividendDaily;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03180A3F20F2F9A60048CDC0 /* DividendDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DividendDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03180A4220F2F9A60048CDC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03180A4420F2F9A60048CDC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		03180A4720F2F9A60048CDC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		03180A4A20F2F9A60048CDC0 /* DividendDaily.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DividendDaily.xcdatamodel; sourceTree = "<group>"; };
+		03180A4C20F2F9A70048CDC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03180A4F20F2F9A70048CDC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		03180A5120F2F9A70048CDC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03180A5620F2F9A70048CDC0 /* DividendDailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DividendDailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03180A5A20F2F9A70048CDC0 /* DividendDailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividendDailyTests.swift; sourceTree = "<group>"; };
+		03180A5C20F2F9A70048CDC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03180A3C20F2F9A60048CDC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03180A5320F2F9A70048CDC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03180A3620F2F9A60048CDC0 = {
+			isa = PBXGroup;
+			children = (
+				03180A4120F2F9A60048CDC0 /* DividendDaily */,
+				03180A5920F2F9A70048CDC0 /* DividendDailyTests */,
+				03180A4020F2F9A60048CDC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03180A4020F2F9A60048CDC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03180A3F20F2F9A60048CDC0 /* DividendDaily.app */,
+				03180A5620F2F9A70048CDC0 /* DividendDailyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03180A4120F2F9A60048CDC0 /* DividendDaily */ = {
+			isa = PBXGroup;
+			children = (
+				03180A4220F2F9A60048CDC0 /* AppDelegate.swift */,
+				03180A4420F2F9A60048CDC0 /* ViewController.swift */,
+				03180A4620F2F9A60048CDC0 /* Main.storyboard */,
+				03180A4C20F2F9A70048CDC0 /* Assets.xcassets */,
+				03180A4E20F2F9A70048CDC0 /* LaunchScreen.storyboard */,
+				03180A5120F2F9A70048CDC0 /* Info.plist */,
+				03180A4920F2F9A60048CDC0 /* DividendDaily.xcdatamodeld */,
+			);
+			path = DividendDaily;
+			sourceTree = "<group>";
+		};
+		03180A5920F2F9A70048CDC0 /* DividendDailyTests */ = {
+			isa = PBXGroup;
+			children = (
+				03180A5A20F2F9A70048CDC0 /* DividendDailyTests.swift */,
+				03180A5C20F2F9A70048CDC0 /* Info.plist */,
+			);
+			path = DividendDailyTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		03180A3E20F2F9A60048CDC0 /* DividendDaily */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03180A5F20F2F9A70048CDC0 /* Build configuration list for PBXNativeTarget "DividendDaily" */;
+			buildPhases = (
+				03180A3B20F2F9A60048CDC0 /* Sources */,
+				03180A3C20F2F9A60048CDC0 /* Frameworks */,
+				03180A3D20F2F9A60048CDC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DividendDaily;
+			productName = DividendDaily;
+			productReference = 03180A3F20F2F9A60048CDC0 /* DividendDaily.app */;
+			productType = "com.apple.product-type.application";
+		};
+		03180A5520F2F9A70048CDC0 /* DividendDailyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03180A6220F2F9A70048CDC0 /* Build configuration list for PBXNativeTarget "DividendDailyTests" */;
+			buildPhases = (
+				03180A5220F2F9A70048CDC0 /* Sources */,
+				03180A5320F2F9A70048CDC0 /* Frameworks */,
+				03180A5420F2F9A70048CDC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03180A5820F2F9A70048CDC0 /* PBXTargetDependency */,
+			);
+			name = DividendDailyTests;
+			productName = DividendDailyTests;
+			productReference = 03180A5620F2F9A70048CDC0 /* DividendDailyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03180A3720F2F9A60048CDC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Christopher Moore";
+				TargetAttributes = {
+					03180A3E20F2F9A60048CDC0 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					03180A5520F2F9A70048CDC0 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 03180A3E20F2F9A60048CDC0;
+					};
+				};
+			};
+			buildConfigurationList = 03180A3A20F2F9A60048CDC0 /* Build configuration list for PBXProject "DividendDaily" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 03180A3620F2F9A60048CDC0;
+			productRefGroup = 03180A4020F2F9A60048CDC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03180A3E20F2F9A60048CDC0 /* DividendDaily */,
+				03180A5520F2F9A70048CDC0 /* DividendDailyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03180A3D20F2F9A60048CDC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03180A5020F2F9A70048CDC0 /* LaunchScreen.storyboard in Resources */,
+				03180A4D20F2F9A70048CDC0 /* Assets.xcassets in Resources */,
+				03180A4820F2F9A60048CDC0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03180A5420F2F9A70048CDC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03180A3B20F2F9A60048CDC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03180A4520F2F9A60048CDC0 /* ViewController.swift in Sources */,
+				03180A4320F2F9A60048CDC0 /* AppDelegate.swift in Sources */,
+				03180A4B20F2F9A60048CDC0 /* DividendDaily.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03180A5220F2F9A70048CDC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03180A5B20F2F9A70048CDC0 /* DividendDailyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03180A5820F2F9A70048CDC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03180A3E20F2F9A60048CDC0 /* DividendDaily */;
+			targetProxy = 03180A5720F2F9A70048CDC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		03180A4620F2F9A60048CDC0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03180A4720F2F9A60048CDC0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		03180A4E20F2F9A70048CDC0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03180A4F20F2F9A70048CDC0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		03180A5D20F2F9A70048CDC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		03180A5E20F2F9A70048CDC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03180A6020F2F9A70048CDC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7UCV2ESBZ;
+				INFOPLIST_FILE = DividendDaily/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = christopherkmoore.DividendDaily;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03180A6120F2F9A70048CDC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7UCV2ESBZ;
+				INFOPLIST_FILE = DividendDaily/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = christopherkmoore.DividendDaily;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		03180A6320F2F9A70048CDC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7UCV2ESBZ;
+				INFOPLIST_FILE = DividendDailyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = christopherkmoore.DividendDailyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DividendDaily.app/DividendDaily";
+			};
+			name = Debug;
+		};
+		03180A6420F2F9A70048CDC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7UCV2ESBZ;
+				INFOPLIST_FILE = DividendDailyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = christopherkmoore.DividendDailyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DividendDaily.app/DividendDaily";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03180A3A20F2F9A60048CDC0 /* Build configuration list for PBXProject "DividendDaily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03180A5D20F2F9A70048CDC0 /* Debug */,
+				03180A5E20F2F9A70048CDC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03180A5F20F2F9A70048CDC0 /* Build configuration list for PBXNativeTarget "DividendDaily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03180A6020F2F9A70048CDC0 /* Debug */,
+				03180A6120F2F9A70048CDC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03180A6220F2F9A70048CDC0 /* Build configuration list for PBXNativeTarget "DividendDailyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03180A6320F2F9A70048CDC0 /* Debug */,
+				03180A6420F2F9A70048CDC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		03180A4920F2F9A60048CDC0 /* DividendDaily.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				03180A4A20F2F9A60048CDC0 /* DividendDaily.xcdatamodel */,
+			);
+			currentVersion = 03180A4A20F2F9A60048CDC0 /* DividendDaily.xcdatamodel */;
+			path = DividendDaily.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 03180A3720F2F9A60048CDC0 /* Project object */;
+}
