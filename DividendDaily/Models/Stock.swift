@@ -10,7 +10,7 @@ import Foundation
 
 struct Stock: Codable {
     
-    public let ticker: String
-    public let quote: Quote?
-    
+    public var ticker: String
+    public var quote: Quote?
+    public var dividend: Dividend? 
 }

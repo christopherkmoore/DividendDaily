@@ -45,8 +45,9 @@ class PortfolioViewController: UIViewController {
     
         IEXApiClient.shared.getStock(text) { (success, result) in
             if let quote = result {
-                let stock = Stock(ticker: quote.symbol, quote: quote)
+                let stock = Stock(ticker: quote.symbol, quote: quote, dividend: nil)
                 StockManager.shared.add(stock)
+                StockManager.shared.updateDividends()
             }
         
             DispatchQueue.main.async {

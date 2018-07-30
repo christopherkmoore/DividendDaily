@@ -31,6 +31,16 @@ class StockManager {
         stocks.append(stock)
     }
     
+    public func updateDividends() {
+        
+        for index in 0..<stocks.count {
+            if stocks[index].dividend == nil {
+                IEXApiClient.shared.getDividend(for: stocks[index].ticker) { (success, result) in
+                    self.stocks[index].dividend = result
+                }
+            }
+        }
+    }
     
 
 }

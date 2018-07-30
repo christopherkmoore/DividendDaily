@@ -1,5 +1,5 @@
 //
-//  HistoryViewModel.swift
+//  Dividend.swift
 //  DividendDaily
 //
 //  Created by Christopher Moore on 7/30/18.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-class HistoryViewModel {
+struct Dividend: Codable {
     
-    
+    public var price: Int
 }

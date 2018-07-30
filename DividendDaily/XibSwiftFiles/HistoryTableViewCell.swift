@@ -15,6 +15,9 @@ class HistoryTableViewCell: UITableViewCell {
     public static let identifier = "HistoryTableViewCell"
     public static let nib = UINib(nibName: HistoryTableViewCell.identifier, bundle: nil)
     
+    @IBOutlet weak var leftLabel: UILabel!
+    @IBOutlet weak var rightTextLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

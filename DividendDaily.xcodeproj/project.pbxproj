@@ -25,6 +25,7 @@
 		03DE25FD210F49EC008AFCF6 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25FC210F49EC008AFCF6 /* StockManager.swift */; };
 		03DE25FF210F50E3008AFCF6 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25FE210F50E3008AFCF6 /* HistoryTableViewCell.swift */; };
 		03DE2601210F515D008AFCF6 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DE2600210F515D008AFCF6 /* HistoryTableViewCell.xib */; };
+		03DE2604210F5849008AFCF6 /* Dividend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE2603210F5849008AFCF6 /* Dividend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		03DE25FC210F49EC008AFCF6 /* StockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
 		03DE25FE210F50E3008AFCF6 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		03DE2600210F515D008AFCF6 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		03DE2603210F5849008AFCF6 /* Dividend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dividend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		03180A4120F2F9A60048CDC0 /* DividendDaily */ = {
 			isa = PBXGroup;
 			children = (
+				03DE2602210F57BC008AFCF6 /* API */,
 				03DE25FB210F49D6008AFCF6 /* Managers */,
 				03180A7120F4434E0048CDC0 /* XibSwiftFiles */,
 				03180A6E20F4430B0048CDC0 /* Xibs */,
@@ -108,7 +111,6 @@
 				03180A6C20F2FA6A0048CDC0 /* ViewControllers */,
 				03180A6720F2FA240048CDC0 /* Models */,
 				03180A4220F2F9A60048CDC0 /* AppDelegate.swift */,
-				03180A6520F2F9E30048CDC0 /* IEXApiClient.swift */,
 				03180A4620F2F9A60048CDC0 /* Main.storyboard */,
 				03180A4C20F2F9A70048CDC0 /* Assets.xcassets */,
 				03180A4E20F2F9A70048CDC0 /* LaunchScreen.storyboard */,
@@ -132,6 +134,7 @@
 			children = (
 				03180A6820F2FA300048CDC0 /* Stock.swift */,
 				033918B620F46D5D0004E8EB /* Quote.swift */,
+				03DE2603210F5849008AFCF6 /* Dividend.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +181,14 @@
 				03DE25FC210F49EC008AFCF6 /* StockManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		03DE2602210F57BC008AFCF6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				03180A6520F2F9E30048CDC0 /* IEXApiClient.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 				03DE25FF210F50E3008AFCF6 /* HistoryTableViewCell.swift in Sources */,
 				03DE25FA210F48AD008AFCF6 /* HistoryViewModel.swift in Sources */,
 				03180A7320F443640048CDC0 /* StockTableViewCell.swift in Sources */,
+				03DE2604210F5849008AFCF6 /* Dividend.swift in Sources */,
 				03DE25F8210F48A2008AFCF6 /* HistoryViewController.swift in Sources */,
 				03180A7520F444010048CDC0 /* PortofolioViewModel.swift in Sources */,
 				03180A6620F2F9E30048CDC0 /* IEXApiClient.swift in Sources */,

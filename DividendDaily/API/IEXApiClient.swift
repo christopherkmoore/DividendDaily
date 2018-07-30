@@ -56,7 +56,7 @@ class IEXApiClient {
     
     private init() {}
     
-    public func getDividend(for stock: String, completion: @escaping (Bool, AnyObject) -> Void) {
+    public func getDividend(for stock: String, completion: @escaping (Bool, Dividend?) -> Void) {
         
         guard let request = buildURL(for: stock, with: nil, and: .dividends) else { return }
         
@@ -69,7 +69,17 @@ class IEXApiClient {
                 return
             }
             
-            completion(true, result)
+            var dividend: Dividend?
+            
+            do {
+                //TODO: unwrap + refactor entire project.
+                dividend = try JSONDecoder().decode(Dividend.self, from: data!)
+            } catch let error {
+                print(error.localizedDescription)
+                completion(false, nil)
+            }
+            
+            completion(true, dividend)
         }.resume()
         
     }

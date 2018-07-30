@@ -11,14 +11,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WTh-re-Foe">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WTh-re-Foe" customClass="HistoryTableViewCell" customModule="DividendDaily" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WTh-re-Foe" id="SOJ-30-U1y">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEj-ED-gkS" userLabel="rightTextLabel">
+                        <rect key="frame" x="0.0" y="0.0" width="328" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XG-jj-NsU" userLabel="leftLabel">
+                        <rect key="frame" x="333" y="0.0" width="42" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0XG-jj-NsU" firstAttribute="top" secondItem="SOJ-30-U1y" secondAttribute="top" id="8Pp-V5-H7V"/>
+                    <constraint firstItem="tEj-ED-gkS" firstAttribute="top" secondItem="SOJ-30-U1y" secondAttribute="top" id="8Rf-3u-0VC"/>
+                    <constraint firstItem="tEj-ED-gkS" firstAttribute="leading" secondItem="SOJ-30-U1y" secondAttribute="leading" id="An4-XW-Neu"/>
+                    <constraint firstAttribute="trailing" secondItem="0XG-jj-NsU" secondAttribute="trailing" id="B9b-Ld-a98"/>
+                    <constraint firstItem="0XG-jj-NsU" firstAttribute="leading" secondItem="tEj-ED-gkS" secondAttribute="trailing" constant="5" id="HnD-Xy-yz1"/>
+                    <constraint firstAttribute="bottom" secondItem="tEj-ED-gkS" secondAttribute="bottom" id="SQI-Pb-xYl"/>
+                    <constraint firstAttribute="bottom" secondItem="0XG-jj-NsU" secondAttribute="bottom" id="vtf-cZ-mdn"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="58" y="-89"/>
+            <connections>
+                <outlet property="leftLabel" destination="0XG-jj-NsU" id="ZQT-Xc-SZl"/>
+                <outlet property="rightTextLabel" destination="tEj-ED-gkS" id="ByX-9y-Rqz"/>
+            </connections>
+            <point key="canvasLocation" x="57.5" y="-89"/>
         </tableViewCell>
     </objects>
 </document>
