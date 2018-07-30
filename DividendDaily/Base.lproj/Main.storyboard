@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XFU-fP-a30">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Picker-->
+        <scene sceneID="6Iw-VR-Cl2">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController title="Picker" id="3kA-Ke-OYD" customClass="PortfolioViewController" customModule="DividendDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ky5-do-Ktp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZU-dA-1TF">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Dividend Daily" id="V0f-wK-bYb">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="HTH-cS-9dK">
+                                            <connections>
+                                                <action selector="addStock:" destination="3kA-Ke-OYD" id="TdL-t2-nFg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qxt-C6-jIn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qxt-C6-jIn" firstAttribute="leading" secondItem="hEo-K6-gUN" secondAttribute="leading" id="4MX-QN-XE2"/>
+                            <constraint firstItem="qxt-C6-jIn" firstAttribute="top" secondItem="yZU-dA-1TF" secondAttribute="bottom" id="BWc-DD-cTS"/>
+                            <constraint firstItem="yZU-dA-1TF" firstAttribute="leading" secondItem="hEo-K6-gUN" secondAttribute="leading" id="GmZ-So-uzE"/>
+                            <constraint firstItem="hEo-K6-gUN" firstAttribute="bottom" secondItem="qxt-C6-jIn" secondAttribute="bottom" id="W0b-vG-3yy"/>
+                            <constraint firstItem="hEo-K6-gUN" firstAttribute="trailing" secondItem="qxt-C6-jIn" secondAttribute="trailing" id="aKd-PM-w4Q"/>
+                            <constraint firstItem="yZU-dA-1TF" firstAttribute="trailing" secondItem="hEo-K6-gUN" secondAttribute="trailing" id="jyf-Fz-CmR"/>
+                            <constraint firstItem="yZU-dA-1TF" firstAttribute="top" secondItem="hEo-K6-gUN" secondAttribute="top" id="tHy-py-WDz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hEo-K6-gUN"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Stocks" id="SO7-zg-FGG"/>
+                    <connections>
+                        <outlet property="stockTableView" destination="qxt-C6-jIn" id="K3t-IP-i1z"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jcU-UB-vTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="294" y="-300"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="ifj-Lh-dAD">
+            <objects>
+                <viewController id="apU-pi-e6i" customClass="HistoryViewController" customModule="DividendDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cYf-dD-ABb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G2x-3T-UbB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SNs-ba-ygM" firstAttribute="bottom" secondItem="G2x-3T-UbB" secondAttribute="bottom" id="2Br-F9-rh8"/>
+                            <constraint firstItem="G2x-3T-UbB" firstAttribute="leading" secondItem="SNs-ba-ygM" secondAttribute="leading" id="OKX-Xg-FJG"/>
+                            <constraint firstItem="SNs-ba-ygM" firstAttribute="trailing" secondItem="G2x-3T-UbB" secondAttribute="trailing" id="nhA-El-ddG"/>
+                            <constraint firstItem="G2x-3T-UbB" firstAttribute="top" secondItem="SNs-ba-ygM" secondAttribute="top" id="vjw-SC-sdD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SNs-ba-ygM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" id="rPz-w7-lVM"/>
+                    <connections>
+                        <outlet property="historyTableView" destination="G2x-3T-UbB" id="a9Y-8m-ogs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWN-01-ymK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294" y="372"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Xo4-RD-CgQ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XFU-fP-a30" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PzS-fJ-X2S"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Owk-oE-MiD">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="3kA-Ke-OYD" kind="relationship" relationship="viewControllers" id="WQD-Za-YmU"/>
+                        <segue destination="apU-pi-e6i" kind="relationship" relationship="viewControllers" id="zib-Tm-Eub"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Sj-Dn-s9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1436" y="69"/>
         </scene>
     </scenes>
 </document>
