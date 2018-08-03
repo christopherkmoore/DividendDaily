@@ -57,3 +57,31 @@ playground.xcworkspace
 # Carthage/Checkouts
 
 Carthage/Build
+Pods/Headers/Private/Kanna/Kanna.h
+Pods/Headers/Public/Kanna/Kanna-umbrella.h
+Pods/Headers/Public/Kanna/Kanna.h
+Pods/Headers/Public/Kanna/Kanna.modulemap
+Pods/Kanna/LICENSE
+Pods/Kanna/Modules/libxml2-kanna.h
+Pods/Kanna/Modules/module.modulemap
+Pods/Kanna/README.md
+Pods/Kanna/Sources/Kanna/CSS.swift
+Pods/Kanna/Sources/Kanna/Deprecated.swift
+Pods/Kanna/Sources/Kanna/Kanna.h
+Pods/Kanna/Sources/Kanna/Kanna.swift
+Pods/Kanna/Sources/Kanna/libxmlHTMLDocument.swift
+Pods/Kanna/Sources/Kanna/libxmlHTMLNode.swift
+Pods/Kanna/Sources/Kanna/libxmlParserOption.swift
+Pods/Pods.xcodeproj/project.pbxproj
+Pods/Target Support Files/Kanna/Kanna-dummy.m
+Pods/Target Support Files/Kanna/Kanna-prefix.pch
+Pods/Target Support Files/Kanna/Kanna.xcconfig
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily-acknowledgements.markdown
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily-acknowledgements.plist
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily-dummy.m
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily-frameworks.sh
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily-resources.sh
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily-umbrella.h
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.debug.xcconfig
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.modulemap
+Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.release.xcconfig
