@@ -7,15 +7,18 @@
 //
 
 import Foundation
+import Kanna
 
 class IEXApiClient {
     
     public enum IEXError: Error {
         case missingParentObject
+        case failedScrape
         
         public var localizedDescription: String {
             switch self {
             case .missingParentObject: return "Unable to parse out parent object from JSON"
+            case .failedScrape: return "Your dumbass scraper is a piece of shit"
             }
         }
     }
@@ -56,7 +59,9 @@ class IEXApiClient {
     
     private init() {}
     
-    public func getDividend(for stock: String, completion: @escaping (Bool, Dividend?) -> Void) {
+    
+    /** Probably best to stay away from this func for the time being. See note in Extension below
+    public func getDividend(for stock: String, completion: @escaping (Bool, [Dividend]?) -> Void) {
         
         guard let request = buildURL(for: stock, with: nil, and: .dividends) else { return }
         
@@ -65,15 +70,18 @@ class IEXApiClient {
                 if let error = error {
                     print(error.localizedDescription)
                     return
-                }
-                return
+     }    pod 'Alamofire', '~> 4.0'
+     pod 'Kanna', '~> 2.0.0'
+     end
             }
             
-            var dividend: Dividend?
+            var dividend: [Dividend]?
             
             do {
                 //TODO: unwrap + refactor entire project.
-                dividend = try JSONDecoder().decode(Dividend.self, from: data!)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(DateFormatter.yyyyMMdd)
+                dividend = try decoder.decode([Dividend].self, from: data!)
             } catch let error {
                 print(error.localizedDescription)
                 completion(false, nil)
@@ -83,6 +91,7 @@ class IEXApiClient {
         }.resume()
         
     }
+    */
     
     public func getStock(_ stock: String, completion: @escaping (Bool, Quote?) -> Void) {
         
@@ -125,15 +134,6 @@ class IEXApiClient {
     private func buildURL(for stocks: String, with types: Types?, and requests: Requests?) -> URLRequest? {
         var url = IEXApiClient.baseUrl + Endpoints.stock.rawValue
 
-        // hacked for single stock (dividend)
-//        stocks.forEach { stock in
-//            if stock == stocks[stocks.count - 1].name {
-//                url += stock + "/"
-//                
-//            } else {
-//                url += stock + ", "
-//            }
-//        }
         url += stocks + "/"
         
         if let request = requests {
@@ -170,6 +170,89 @@ class IEXApiClient {
         
         return result
     }
-    
-    
 }
+
+/*
+ Unfortunately due to shortcomings of the IEX API dividend information is
+ inaccurate as of writing this. Here's a hacky hacky for scraping nasdaq.com's
+ dividend page (pretty good info)
+ */
+extension IEXApiClient {
+    
+    /// Default 5 yr div history
+    public func scrapeDividends(_ stock: Stock, completion: @escaping ([Dividend]?, Error?) -> Void ) {
+        
+        // hopefully no one minds this... it's publically available information.
+        let base = "https://www.nasdaq.com/symbol/"
+        let ticker = stock.ticker + "/"
+        let whole = base + ticker + "dividend-history"
+        
+        
+        guard let url = URL(string: whole) else {
+            completion(nil, IEXError.failedScrape)
+            return
+        }
+        
+        let req = URLRequest(url: url)
+        
+        let task = URLSession.shared.dataTask(with: req) { (result, response, error) in
+            guard let result = result else { return }
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            if let doc = String(data: result, encoding: .utf8) {
+                let divs = self.parseHTML(html: doc)
+                completion(divs, nil)
+            }
+            
+            }.resume()
+    }
+    
+    public func parseHTML(html: String) -> [Dividend]? {
+        let doc = try? Kanna.HTML(html: html, encoding: String.Encoding.utf8)
+        
+        guard let document = doc else { return nil }
+        
+        let data = document.css("div[id='quotes_content_left_ContentPanel']")
+        
+        var str = data.first?.text?
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: "\\r", with: "", options: .regularExpression)
+            .replacingOccurrences(of: "\\t", with: "", options: .regularExpression)
+            .replacingOccurrences(of: "\\n", with: " ", options: .regularExpression)
+            .replacingOccurrences(of: "[a-zA-Z]", with: "", options: .regularExpression)
+            .trimmingCharacters(in: .whitespaces)
+        str?.removeFirst()
+        let final = str?.trimmingCharacters(in: .whitespaces)
+        
+        let group = final?
+            .components(separatedBy: "  ")
+            .filter { $0 != "" }
+        
+        guard let array = group else { return nil }
+        
+        var last: Int = 0
+        var dividends = [Dividend]()
+        for i in 0..<array.count {
+            if i == 0 { continue }
+            if i % (4 + last) == 0 {
+                let ex = array[i-4]
+                let cashAmount = Double(array[i-3])
+                let declaration = array[i-2]
+                let record = array[i-1]
+                let payment = array[i]
+
+                let div = Dividend(exDate: ex, paymentDate: payment, recordDate: record, declaredDate: declaration, amount: cashAmount, flag: nil, type: "Cash", qualified: nil, indicated: nil)
+                dividends.append(div)
+                last = i + 1
+            }
+        }
+        return dividends
+    }
+}
+
+
+
+
+

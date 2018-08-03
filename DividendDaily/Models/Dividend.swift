@@ -10,5 +10,14 @@ import Foundation
 
 struct Dividend: Codable {
     
-    public var price: Int
+    public var exDate: String
+    public var paymentDate: String
+    public var recordDate: String
+    public var declaredDate: String
+    public var amount: Double?
+    public var flag: String?
+    public var type: String
+    public var qualified: String?
+    public var indicated: String?
+    
 }

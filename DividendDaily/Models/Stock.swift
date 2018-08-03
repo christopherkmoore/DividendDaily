@@ -12,5 +12,5 @@ struct Stock: Codable {
     
     public var ticker: String
     public var quote: Quote?
-    public var dividend: Dividend? 
+    public var dividend: [Dividend]?
 }

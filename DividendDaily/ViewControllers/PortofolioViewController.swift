@@ -47,6 +47,22 @@ class PortfolioViewController: UIViewController {
             if let quote = result {
                 let stock = Stock(ticker: quote.symbol, quote: quote, dividend: nil)
                 StockManager.shared.add(stock)
+                
+                /***
+                    Huge mother fucking hack here.
+                */
+                
+                let url = URL(string: "https://www.nasdaq.com/symbol/sbux/dividend-history")
+                let req = URLRequest(url: url!)
+                
+                let task = URLSession.shared.dataTask(with: req) { (data, request, error) in
+
+                    guard let data = data else { return }
+
+                    guard let document = String(data: data, encoding: .utf8) else { return }
+
+                }.resume()
+                
                 StockManager.shared.updateDividends()
             }
         

@@ -31,12 +31,17 @@ class StockManager {
         stocks.append(stock)
     }
     
+    /// looks thru stocks to make API calls for stocks with dividend values of nil
     public func updateDividends() {
         
         for index in 0..<stocks.count {
             if stocks[index].dividend == nil {
-                IEXApiClient.shared.getDividend(for: stocks[index].ticker) { (success, result) in
-                    self.stocks[index].dividend = result
+                IEXApiClient.shared.scrapeDividends(stocks[index]) { (dividends, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    
+                    self.stocks[index].dividend = dividends
                 }
             }
         }

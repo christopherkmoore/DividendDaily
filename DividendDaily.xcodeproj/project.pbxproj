@@ -26,6 +26,8 @@
 		03DE25FF210F50E3008AFCF6 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25FE210F50E3008AFCF6 /* HistoryTableViewCell.swift */; };
 		03DE2601210F515D008AFCF6 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DE2600210F515D008AFCF6 /* HistoryTableViewCell.xib */; };
 		03DE2604210F5849008AFCF6 /* Dividend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE2603210F5849008AFCF6 /* Dividend.swift */; };
+		03DE26062110A40E008AFCF6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE26052110A40E008AFCF6 /* Utilities.swift */; };
+		D50C7842C7DEE6F4847B74A3 /* libPods-DividendDaily.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3258A9FF890FA6E8458ADB /* libPods-DividendDaily.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		03DE25FE210F50E3008AFCF6 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		03DE2600210F515D008AFCF6 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		03DE2603210F5849008AFCF6 /* Dividend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dividend.swift; sourceTree = "<group>"; };
+		03DE26052110A40E008AFCF6 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		231A1F422D5C96461CBDD249 /* Pods-DividendDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DividendDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.release.xcconfig"; sourceTree = "<group>"; };
+		42E85DC5A4E3A44EBFF4453F /* Pods-DividendDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DividendDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.debug.xcconfig"; sourceTree = "<group>"; };
+		EB3258A9FF890FA6E8458ADB /* libPods-DividendDaily.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DividendDaily.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D50C7842C7DEE6F4847B74A3 /* libPods-DividendDaily.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +95,8 @@
 				03180A4120F2F9A60048CDC0 /* DividendDaily */,
 				03180A5920F2F9A70048CDC0 /* DividendDailyTests */,
 				03180A4020F2F9A60048CDC0 /* Products */,
+				18D3761CDAB64D592BB42C6E /* Pods */,
+				47AC8F09EF99051B5915B6A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +125,7 @@
 				03180A4E20F2F9A70048CDC0 /* LaunchScreen.storyboard */,
 				03180A5120F2F9A70048CDC0 /* Info.plist */,
 				03180A4920F2F9A60048CDC0 /* DividendDaily.xcdatamodeld */,
+				03DE26052110A40E008AFCF6 /* Utilities.swift */,
 			);
 			path = DividendDaily;
 			sourceTree = "<group>";
@@ -191,6 +201,23 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		18D3761CDAB64D592BB42C6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42E85DC5A4E3A44EBFF4453F /* Pods-DividendDaily.debug.xcconfig */,
+				231A1F422D5C96461CBDD249 /* Pods-DividendDaily.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		47AC8F09EF99051B5915B6A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB3258A9FF890FA6E8458ADB /* libPods-DividendDaily.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,6 +225,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03180A5F20F2F9A70048CDC0 /* Build configuration list for PBXNativeTarget "DividendDaily" */;
 			buildPhases = (
+				0DA6F8BD6802711EFC68D387 /* [CP] Check Pods Manifest.lock */,
 				03180A3B20F2F9A60048CDC0 /* Sources */,
 				03180A3C20F2F9A60048CDC0 /* Frameworks */,
 				03180A3D20F2F9A60048CDC0 /* Resources */,
@@ -289,6 +317,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DA6F8BD6802711EFC68D387 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DividendDaily-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03180A3B20F2F9A60048CDC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -296,6 +345,7 @@
 			files = (
 				03180A6B20F2FA640048CDC0 /* PortofolioViewController.swift in Sources */,
 				03180A4320F2F9A60048CDC0 /* AppDelegate.swift in Sources */,
+				03DE26062110A40E008AFCF6 /* Utilities.swift in Sources */,
 				03DE25FD210F49EC008AFCF6 /* StockManager.swift in Sources */,
 				03180A4B20F2F9A60048CDC0 /* DividendDaily.xcdatamodeld in Sources */,
 				03180A6920F2FA300048CDC0 /* Stock.swift in Sources */,
@@ -464,6 +514,7 @@
 		};
 		03180A6020F2F9A70048CDC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42E85DC5A4E3A44EBFF4453F /* Pods-DividendDaily.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -482,6 +533,7 @@
 		};
 		03180A6120F2F9A70048CDC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 231A1F422D5C96461CBDD249 /* Pods-DividendDaily.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
