@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Dividend: Codable {
+struct Dividend: Equatable, Codable {
     
     public var exDate: String
     public var paymentDate: String
@@ -19,5 +19,4 @@ struct Dividend: Codable {
     public var type: String
     public var qualified: String?
     public var indicated: String?
-    
 }

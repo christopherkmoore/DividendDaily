@@ -8,6 +8,9 @@
 
 import Foundation
 
+protocol StockManagerDelegate: AnyObject {
+    func stocksDidUpdate()
+}
 
 class StockManager {
     
@@ -16,19 +19,31 @@ class StockManager {
     private init() {}
     
     public private(set) var stocks = [Stock]()
+    public var delegates = NSHashTable<AnyObject>.weakObjects()
+    
     
     public var numberOfStocks: Int {
         return stocks.count
     }
     
+    public func addDelegate(_ delegate: StockManagerDelegate) {
+        delegates.add(delegate)
+    }
+    
     public func stock(at index: Int) -> Stock? {
         guard index < stocks.count else { return nil }
-        
         return stocks[index]
     }
     
     public func add(_ stock: Stock) {
-        stocks.append(stock)
+        if !stocks.contains(where: { $0 == stock }) {
+            stocks.append(stock)
+        }
+        
+        for (_, delegate) in delegates.allObjects.enumerated() {
+            guard let delegate = delegate as? StockManagerDelegate else { return }
+            delegate.stocksDidUpdate()
+        }
     }
     
     /// looks thru stocks to make API calls for stocks with dividend values of nil
@@ -46,6 +61,5 @@ class StockManager {
             }
         }
     }
-    
-
 }
+

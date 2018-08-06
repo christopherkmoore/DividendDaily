@@ -22,8 +22,17 @@ class HistoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    public func set(using viewModel: PortofolioViewModel, at index: Int) {
+    public func set(using viewModel: HistoryViewModel?, at index: Int) {
+        let div = viewModel?.upcomingExDividends[index]
         
+        guard
+            let key = div?.first?.key,
+            let value = div?.first?.value.exDate else {
+                return
+        }
+        
+        let text = key + "is going ex: " + value
+        rightTextLabel.text = text
     }
     
     

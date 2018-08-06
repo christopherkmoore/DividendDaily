@@ -42,30 +42,14 @@ class PortfolioViewController: UIViewController {
     }
     
     func search(with text: String) {
-    
-        IEXApiClient.shared.getStock(text) { (success, result) in
-            if let quote = result {
-                let stock = Stock(ticker: quote.symbol, quote: quote, dividend: nil)
-                StockManager.shared.add(stock)
-                
-                /***
-                    Huge mother fucking hack here.
-                */
-                
-                let url = URL(string: "https://www.nasdaq.com/symbol/sbux/dividend-history")
-                let req = URLRequest(url: url!)
-                
-                let task = URLSession.shared.dataTask(with: req) { (data, request, error) in
-
-                    guard let data = data else { return }
-
-                    guard let document = String(data: data, encoding: .utf8) else { return }
-
-                }.resume()
-                
-                StockManager.shared.updateDividends()
-            }
+    let incompleteStock = Stock(ticker: text, quote: nil, dividend: nil)
         
+        IEXApiClient.shared.getStock(incompleteStock) { (success, result) in
+            guard success else { return }
+            if let stock = result {
+                StockManager.shared.add(stock)
+            }
+            
             DispatchQueue.main.async {
                 self.stockTableView.reloadData()
             }

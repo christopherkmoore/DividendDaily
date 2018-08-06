@@ -14,11 +14,13 @@ class IEXApiClient {
     public enum IEXError: Error {
         case missingParentObject
         case failedScrape
+        case stockNameEmpty
         
         public var localizedDescription: String {
             switch self {
             case .missingParentObject: return "Unable to parse out parent object from JSON"
             case .failedScrape: return "Your dumbass scraper is a piece of shit"
+            case .stockNameEmpty: return "Search is failing with empty stock name"
             }
         }
     }
@@ -93,11 +95,18 @@ class IEXApiClient {
     }
     */
     
-    public func getStock(_ stock: String, completion: @escaping (Bool, Quote?) -> Void) {
+    public func getStock(_ stock: Stock, completion: @escaping (Bool, Stock?) -> Void) {
+        var temp = Stock(stock)
+        let dispatch = DispatchGroup()
+        dispatch.enter()
         
-        guard let request = buildURL(for: stock, with: nil, and: .quotes) else { return }
-        
+        defer {
+            dispatch.leave()
+            completion(false, nil)
+        }
+        guard let request = buildURL(for: stock.ticker, with: nil, and: .quotes) else { return }
         session.dataTask(with: request) { [weak self] (data, request, error) in
+            
             guard let data = data else { return }
             
             guard let result = self?.getResults(data, request, error) else {
@@ -105,14 +114,12 @@ class IEXApiClient {
                     print(error.localizedDescription)
                     completion(false, nil)
                 }
-                completion(false, nil)
                 return
             }
             
             let dict = result as! [String: Any]
             guard let shavedParentDictionary = dict["quote"] else {
                 print("\(IEXError.missingParentObject.localizedDescription) for  \(dict)")
-                completion(false, nil)
                 return
             }
             
@@ -121,13 +128,22 @@ class IEXApiClient {
             do {
                 let backToData = try JSONSerialization.data(withJSONObject: shavedParentDictionary)
                 quote = try JSONDecoder().decode(Quote.self, from: backToData)
+                temp.quote = quote
 
             } catch let error {
                 print(error.localizedDescription)
-                completion(false, nil)
+                return
             }
             
-            completion(true, quote)
+            self?.scrapeDividends(temp) { (dividend, error) in
+                dispatch.enter()
+                
+                if let dividend = dividend {
+                    temp.dividend = dividend
+                    dispatch.leave()
+                    completion(true, temp)
+                } else { return }
+            }
         }.resume()
     }
     
@@ -181,6 +197,8 @@ extension IEXApiClient {
     
     /// Default 5 yr div history
     public func scrapeDividends(_ stock: Stock, completion: @escaping ([Dividend]?, Error?) -> Void ) {
+        
+        if stock.ticker == "" { completion(nil, IEXError.stockNameEmpty) }
         
         // hopefully no one minds this... it's publically available information.
         let base = "https://www.nasdaq.com/symbol/"
