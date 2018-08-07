@@ -14,7 +14,8 @@ class PortfolioViewController: UIViewController {
     @IBOutlet weak var stockTableView: UITableView!
     
     var viewModel = PortofolioViewModel()
-    
+    weak var stockDelegate: StockManagerDelegate!
+
     @IBAction func addStock(_ sender: Any) {
         let alert = UIAlertController(title: "add new stock", message: "What would you like to add?", preferredStyle: .alert)
         
@@ -48,11 +49,24 @@ class PortfolioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if stockDelegate == nil {
+            self.stockDelegate = self
+            StockManager.shared.addDelegate(stockDelegate)
+        }
+        
         stockTableView.delegate = self
         stockTableView.dataSource = self
         
         stockTableView.register(StockTableViewCell.nib, forCellReuseIdentifier: StockTableViewCell.identifier)
         stockTableView.rowHeight = UITableViewAutomaticDimension
+    }
+}
+
+extension PortfolioViewController: StockManagerDelegate {
+    func stocksDidUpdate() {
+        DispatchQueue.main.async {
+            self.stockTableView.reloadData()
+        }
     }
 }
 

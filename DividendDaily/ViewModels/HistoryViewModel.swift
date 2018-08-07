@@ -19,9 +19,34 @@ class HistoryViewModel {
         upcomingExDividends = []
         
         StockManager.shared.stocks.forEach {
-            guard let name = $0.quote?.companyName else { print("company name nil"); return}
             guard let div = $0.dividend?.first else { print("dividend is not present"); return }
+            let name = $0.ticker
             upcomingExDividends.append([name:div])
+        }
+        sortDivs()
+    }
+    
+    func lookPayment() {
+        
+    }
+    
+    private func sortDivs() {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        formatter.dateStyle = .short
+        formatter.timeZone = .current
+        formatter.timeStyle = .none
+        
+        upcomingExDividends.sort { (first, second) -> Bool in
+            if
+                let date1 = first.values.first?.exDate,
+                let date2 = second.values.first?.exDate,
+                let firstDate = formatter.date(from: date1),
+                let secondDate = formatter.date(from: date2) {
+                    return firstDate < secondDate
+            }
+            return false
         }
     }
     
