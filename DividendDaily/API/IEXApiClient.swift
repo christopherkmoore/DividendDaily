@@ -142,7 +142,8 @@ class IEXApiClient {
                     temp.dividend = dividend
                     dispatch.leave()
                     completion(true, temp)
-                } else { return }
+                    // maybe dividend doesn't exist
+                } else { completion(true, temp) }
             }
         }.resume()
     }
