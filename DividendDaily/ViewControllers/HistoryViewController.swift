@@ -16,6 +16,36 @@ class HistoryViewController: UIViewController {
     var divHistoryViewModel: HistoryViewModel?
     weak var stockDelegate: StockManagerDelegate!
     
+    @IBAction func addStock(_ sender: Any) {
+        let alert = UIAlertController(title: "add new stock", message: "What would you like to add?", preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: nil)
+        
+        let add = UIAlertAction(title: "Add", style: .default) { (action) in
+            guard let text = alert.textFields?.first?.text else { return }
+            search(with: text)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(add)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+        
+        func search(with text: String) {
+            let incompleteStock = Stock(ticker: text, quote: nil, dividend: nil)
+            
+            IEXApiClient.shared.getStock(incompleteStock) { (success, result) in
+                guard success else { return }
+                if let stock = result {
+                    StockManager.shared.add(stock)
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

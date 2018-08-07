@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEj-ED-gkS" userLabel="rightTextLabel">
-                        <rect key="frame" x="0.0" y="0.0" width="328" height="44"/>
+                        <rect key="frame" x="10" y="0.0" width="308" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XG-jj-NsU" userLabel="leftLabel">
-                        <rect key="frame" x="333" y="0.0" width="42" height="44"/>
+                        <rect key="frame" x="323" y="0.0" width="42" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,8 +34,8 @@
                 <constraints>
                     <constraint firstItem="0XG-jj-NsU" firstAttribute="top" secondItem="SOJ-30-U1y" secondAttribute="top" id="8Pp-V5-H7V"/>
                     <constraint firstItem="tEj-ED-gkS" firstAttribute="top" secondItem="SOJ-30-U1y" secondAttribute="top" id="8Rf-3u-0VC"/>
-                    <constraint firstItem="tEj-ED-gkS" firstAttribute="leading" secondItem="SOJ-30-U1y" secondAttribute="leading" id="An4-XW-Neu"/>
-                    <constraint firstAttribute="trailing" secondItem="0XG-jj-NsU" secondAttribute="trailing" id="B9b-Ld-a98"/>
+                    <constraint firstItem="tEj-ED-gkS" firstAttribute="leading" secondItem="SOJ-30-U1y" secondAttribute="leading" constant="10" id="An4-XW-Neu"/>
+                    <constraint firstAttribute="trailing" secondItem="0XG-jj-NsU" secondAttribute="trailing" constant="10" id="B9b-Ld-a98"/>
                     <constraint firstItem="0XG-jj-NsU" firstAttribute="leading" secondItem="tEj-ED-gkS" secondAttribute="trailing" constant="5" id="HnD-Xy-yz1"/>
                     <constraint firstAttribute="bottom" secondItem="tEj-ED-gkS" secondAttribute="bottom" id="SQI-Pb-xYl"/>
                     <constraint firstAttribute="bottom" secondItem="0XG-jj-NsU" secondAttribute="bottom" id="vtf-cZ-mdn"/>

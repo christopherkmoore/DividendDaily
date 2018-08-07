@@ -112,6 +112,7 @@
 		03180A4120F2F9A60048CDC0 /* DividendDaily */ = {
 			isa = PBXGroup;
 			children = (
+				032C0F9221192F1E00E1BDFA /* Views */,
 				03DE2602210F57BC008AFCF6 /* API */,
 				03DE25FB210F49D6008AFCF6 /* Managers */,
 				03180A7120F4434E0048CDC0 /* XibSwiftFiles */,
@@ -183,6 +184,13 @@
 				03DE25FE210F50E3008AFCF6 /* HistoryTableViewCell.swift */,
 			);
 			path = XibSwiftFiles;
+			sourceTree = "<group>";
+		};
+		032C0F9221192F1E00E1BDFA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		03DE25FB210F49D6008AFCF6 /* Managers */ = {

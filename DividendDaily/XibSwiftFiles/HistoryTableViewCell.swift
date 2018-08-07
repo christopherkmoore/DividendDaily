@@ -31,7 +31,7 @@ class HistoryTableViewCell: UITableViewCell {
                 return
         }
         
-        let text = key + "is going ex: " + value
+        let text = key + "is going ex: " + value + " "
         rightTextLabel.text = text
     }
     

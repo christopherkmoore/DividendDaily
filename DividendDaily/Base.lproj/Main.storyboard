@@ -23,9 +23,9 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Dividend Daily" id="V0f-wK-bYb">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="HTH-cS-9dK">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="HTH-cS-9dK" customClass="SearchBarButton" customModule="DividendDaily" customModuleProvider="target">
                                             <connections>
-                                                <action selector="addStock:" destination="3kA-Ke-OYD" id="TdL-t2-nFg"/>
+                                                <action selector="addStock:" destination="3kA-Ke-OYD" id="BFc-jQ-TeC"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -65,17 +65,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9c-xP-aOV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Dividend Daily" id="h33-mi-5Wd">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="4DA-Hm-gMr" customClass="SearchBarButton" customModule="DividendDaily" customModuleProvider="target">
+                                            <connections>
+                                                <action selector="addStock:" destination="apU-pi-e6i" id="ohb-Am-t2J"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G2x-3T-UbB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SNs-ba-ygM" firstAttribute="bottom" secondItem="G2x-3T-UbB" secondAttribute="bottom" id="2Br-F9-rh8"/>
+                            <constraint firstItem="N9c-xP-aOV" firstAttribute="top" secondItem="SNs-ba-ygM" secondAttribute="top" id="82S-Uv-xs7"/>
+                            <constraint firstItem="N9c-xP-aOV" firstAttribute="leading" secondItem="SNs-ba-ygM" secondAttribute="leading" id="B69-Cl-IK1"/>
+                            <constraint firstItem="N9c-xP-aOV" firstAttribute="trailing" secondItem="SNs-ba-ygM" secondAttribute="trailing" id="HA2-zB-FQ1"/>
                             <constraint firstItem="G2x-3T-UbB" firstAttribute="leading" secondItem="SNs-ba-ygM" secondAttribute="leading" id="OKX-Xg-FJG"/>
+                            <constraint firstItem="G2x-3T-UbB" firstAttribute="top" secondItem="N9c-xP-aOV" secondAttribute="bottom" id="eIx-q1-ojx"/>
                             <constraint firstItem="SNs-ba-ygM" firstAttribute="trailing" secondItem="G2x-3T-UbB" secondAttribute="trailing" id="nhA-El-ddG"/>
-                            <constraint firstItem="G2x-3T-UbB" firstAttribute="top" secondItem="SNs-ba-ygM" secondAttribute="top" id="vjw-SC-sdD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SNs-ba-ygM"/>
                     </view>
@@ -86,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWN-01-ymK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="372"/>
+            <point key="canvasLocation" x="293.60000000000002" y="371.96401799100454"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Xo4-RD-CgQ">
@@ -95,6 +111,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PzS-fJ-X2S"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Owk-oE-MiD">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
