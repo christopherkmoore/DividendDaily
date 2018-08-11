@@ -11,48 +11,69 @@ import Foundation
 
 class HistoryViewModel {
     
-    var upcomingExDividends = [[String: Dividend]]()
+    var upcomingExDividends = [[String: String]]()
+    var upcomingPayments = [String: String]()
     
-    // func to pick out upcoming dividends (within 30 days?)
     
     func lookEx() {
         upcomingExDividends = []
         
         StockManager.shared.stocks.forEach {
-            guard let div = $0.dividend?.first else { print("dividend is not present"); return }
+            guard let div = $0.dividend?.first?.exDate else { return }
             let name = $0.ticker
-            upcomingExDividends.append([name:div])
+            upcomingExDividends.append([name: div])
         }
-        sortDivs()
+        var filtered = dividendsIn(30, for: upcomingExDividends)
+        upcomingExDividends = sortDivs(dividends: &filtered)
     }
     
     func lookPayment() {
-        
+        StockManager.shared.stocks.forEach {
+            guard let div = $0.dividend?.first else { return }
+            let name = $0.ticker
+            
+            /* filter old */
+            
+            upcomingPayments[name] = div.paymentDate
+        }
     }
     
-    private func sortDivs() {
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
-        formatter.dateStyle = .short
-        formatter.timeZone = .current
-        formatter.timeStyle = .none
-        
-        upcomingExDividends.sort { (first, second) -> Bool in
+    private func sortDivs( dividends: inout [[String: String]]) -> [[String: String]] {
+
+        return dividends.sorted { (first, second) -> Bool in
             if
-                let date1 = first.values.first?.exDate,
-                let date2 = second.values.first?.exDate,
-                let firstDate = formatter.date(from: date1),
-                let secondDate = formatter.date(from: date2) {
-                    return firstDate < secondDate
+                let date1 = first.values.first,
+                let date2 = second.values.first,
+                let firstDate = DateFormatter.mMddyyyDashFormatter.date(from: date1),
+                let secondDate = DateFormatter.mMddyyyDashFormatter.date(from: date2) {
+                return firstDate < secondDate
             }
             return false
         }
     }
     
-    // func to look for increases
-    
-    // func to find divs just gone ex
-    
-    
+    private func dividendsIn(_ days: Int, for stocks: [[String: String]]) -> [[String: String]] {
+        
+        /* days * hours * minutes * seconds */
+        let thresholdInterval: TimeInterval = TimeInterval(days * 24 * 60 * 60)
+        
+        let acceptableRange = stocks.filter {
+            
+            guard let string = $0.first?.value,
+                let date = DateFormatter.mMddyyyDashFormatter.date(from: string) else {
+                    return true
+            }
+                /* filter anything past 30 days or 15 days before today */
+            if date.timeIntervalSinceNow > (thresholdInterval * -0.5)  {
+                if date.timeIntervalSinceNow >= thresholdInterval {
+                    return false
+                } else {
+                    return true
+                }
+            } else {
+                return false
+            }
+        }
+        return acceptableRange
+    }
 }

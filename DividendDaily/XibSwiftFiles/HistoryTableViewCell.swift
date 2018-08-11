@@ -27,11 +27,11 @@ class HistoryTableViewCell: UITableViewCell {
         
         guard
             let key = div?.first?.key,
-            let value = div?.first?.value.exDate else {
+            let value = div?.first?.value else {
                 return
         }
         
-        let text = key + " is going ex: " + value + " "
+        let text = key.uppercased() + " is going ex: " + value + " "
         rightTextLabel.text = text
     }
     
