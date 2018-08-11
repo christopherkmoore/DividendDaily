@@ -21,6 +21,7 @@
 		03180A7520F444010048CDC0 /* PortofolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03180A7420F444010048CDC0 /* PortofolioViewModel.swift */; };
 		033918B720F46D5D0004E8EB /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033918B620F46D5D0004E8EB /* Quote.swift */; };
 		03962CFF211BB3F000C7BFD0 /* Utilities + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03962CFE211BB3F000C7BFD0 /* Utilities + Extensions.swift */; };
+		03D49469211F677F00813D26 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D49468211F677F00813D26 /* CoreDataStack.swift */; };
 		03DE25F8210F48A2008AFCF6 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25F7210F48A2008AFCF6 /* HistoryViewController.swift */; };
 		03DE25FA210F48AD008AFCF6 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25F9210F48AD008AFCF6 /* HistoryViewModel.swift */; };
 		03DE25FD210F49EC008AFCF6 /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25FC210F49EC008AFCF6 /* StockManager.swift */; };
@@ -59,6 +60,7 @@
 		03180A7420F444010048CDC0 /* PortofolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortofolioViewModel.swift; sourceTree = "<group>"; };
 		033918B620F46D5D0004E8EB /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		03962CFE211BB3F000C7BFD0 /* Utilities + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utilities + Extensions.swift"; sourceTree = "<group>"; };
+		03D49468211F677F00813D26 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		03DE25F7210F48A2008AFCF6 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		03DE25F9210F48AD008AFCF6 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		03DE25FC210F49EC008AFCF6 /* StockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				03180A5120F2F9A70048CDC0 /* Info.plist */,
 				03180A4920F2F9A60048CDC0 /* DividendDaily.xcdatamodeld */,
 				03962CFE211BB3F000C7BFD0 /* Utilities + Extensions.swift */,
+				03D49468211F677F00813D26 /* CoreDataStack.swift */,
 			);
 			path = DividendDaily;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D49469211F677F00813D26 /* CoreDataStack.swift in Sources */,
 				03180A6B20F2FA640048CDC0 /* PortofolioViewController.swift in Sources */,
 				03180A4320F2F9A60048CDC0 /* AppDelegate.swift in Sources */,
 				03DE25FD210F49EC008AFCF6 /* StockManager.swift in Sources */,
