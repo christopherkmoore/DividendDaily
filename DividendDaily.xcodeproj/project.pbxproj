@@ -27,7 +27,6 @@
 		03DE25FF210F50E3008AFCF6 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25FE210F50E3008AFCF6 /* HistoryTableViewCell.swift */; };
 		03DE2601210F515D008AFCF6 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DE2600210F515D008AFCF6 /* HistoryTableViewCell.xib */; };
 		03DE2604210F5849008AFCF6 /* Dividend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE2603210F5849008AFCF6 /* Dividend.swift */; };
-		03DE26062110A40E008AFCF6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE26052110A40E008AFCF6 /* Utilities.swift */; };
 		D50C7842C7DEE6F4847B74A3 /* libPods-DividendDaily.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3258A9FF890FA6E8458ADB /* libPods-DividendDaily.a */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +65,6 @@
 		03DE25FE210F50E3008AFCF6 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		03DE2600210F515D008AFCF6 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		03DE2603210F5849008AFCF6 /* Dividend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dividend.swift; sourceTree = "<group>"; };
-		03DE26052110A40E008AFCF6 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		231A1F422D5C96461CBDD249 /* Pods-DividendDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DividendDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.release.xcconfig"; sourceTree = "<group>"; };
 		42E85DC5A4E3A44EBFF4453F /* Pods-DividendDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DividendDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		EB3258A9FF890FA6E8458ADB /* libPods-DividendDaily.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DividendDaily.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +126,6 @@
 				03180A4E20F2F9A70048CDC0 /* LaunchScreen.storyboard */,
 				03180A5120F2F9A70048CDC0 /* Info.plist */,
 				03180A4920F2F9A60048CDC0 /* DividendDaily.xcdatamodeld */,
-				03DE26052110A40E008AFCF6 /* Utilities.swift */,
 				03962CFE211BB3F000C7BFD0 /* Utilities + Extensions.swift */,
 			);
 			path = DividendDaily;
@@ -356,7 +353,6 @@
 			files = (
 				03180A6B20F2FA640048CDC0 /* PortofolioViewController.swift in Sources */,
 				03180A4320F2F9A60048CDC0 /* AppDelegate.swift in Sources */,
-				03DE26062110A40E008AFCF6 /* Utilities.swift in Sources */,
 				03DE25FD210F49EC008AFCF6 /* StockManager.swift in Sources */,
 				03180A4B20F2F9A60048CDC0 /* DividendDaily.xcdatamodeld in Sources */,
 				03180A6920F2FA300048CDC0 /* Stock.swift in Sources */,

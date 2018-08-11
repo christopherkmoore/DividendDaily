@@ -11,8 +11,13 @@ import Foundation
 
 class HistoryViewModel {
     
+    static let ex = " is going ex: "
+    static let payable = " is paying: "
+    
     var upcomingExDividends = [[String: String]]()
-    var upcomingPayments = [String: String]()
+    var upcomingPayments = [[String: String]]()
+    
+    var finalDividendHistory = [[String: String]]()
     
     
     func lookEx() {
@@ -20,22 +25,34 @@ class HistoryViewModel {
         
         StockManager.shared.stocks.forEach {
             guard let div = $0.dividend?.first?.exDate else { return }
-            let name = $0.ticker
-            upcomingExDividends.append([name: div])
+            let name = $0.ticker.uppercased()
+            let text = name + HistoryViewModel.ex
+            upcomingExDividends.append([text: div])
         }
         var filtered = dividendsIn(30, for: upcomingExDividends)
         upcomingExDividends = sortDivs(dividends: &filtered)
     }
     
     func lookPayment() {
+        upcomingPayments = []
         StockManager.shared.stocks.forEach {
             guard let div = $0.dividend?.first else { return }
-            let name = $0.ticker
-            
-            /* filter old */
-            
-            upcomingPayments[name] = div.paymentDate
+            let name = $0.ticker.uppercased()
+            let text = name + HistoryViewModel.payable
+            upcomingPayments.append([text: div.paymentDate])
         }
+        var filtered = dividendsIn(30, for: upcomingPayments)
+        upcomingPayments = sortDivs(dividends: &filtered)
+
+    }
+    
+    func searchDividendData() {
+        lookEx()
+        lookPayment()
+        
+        finalDividendHistory = upcomingPayments + upcomingExDividends
+        _ = sortDivs(dividends: &finalDividendHistory)
+        
     }
     
     private func sortDivs( dividends: inout [[String: String]]) -> [[String: String]] {

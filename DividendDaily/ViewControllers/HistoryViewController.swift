@@ -69,7 +69,7 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController: StockManagerDelegate {
     func stocksDidUpdate() {
-        divHistoryViewModel?.lookEx()
+        divHistoryViewModel?.searchDividendData()
         DispatchQueue.main.async {
             self.historyTableView.reloadData()
         }  
@@ -78,7 +78,7 @@ extension HistoryViewController: StockManagerDelegate {
 
 extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = divHistoryViewModel?.upcomingExDividends.compactMap { $0 }.count
+        let count = divHistoryViewModel?.finalDividendHistory.compactMap { $0 }.count
         
         if let count = count {
             return count

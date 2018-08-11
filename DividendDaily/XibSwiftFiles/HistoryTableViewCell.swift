@@ -23,7 +23,7 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     public func set(using viewModel: HistoryViewModel?, at index: Int) {
-        let div = viewModel?.upcomingExDividends[index]
+        let div = viewModel?.finalDividendHistory[index]
         
         guard
             let key = div?.first?.key,
@@ -31,7 +31,7 @@ class HistoryTableViewCell: UITableViewCell {
                 return
         }
         
-        let text = key.uppercased() + " is going ex: " + value + " "
+        let text = key + value + " "
         rightTextLabel.text = text
     }
     
