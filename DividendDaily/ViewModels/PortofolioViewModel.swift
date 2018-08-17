@@ -14,7 +14,6 @@ class PortofolioViewModel {
         return StockManager.shared.numberOfStocks
     }
     
-    
     public func todaysChange(_ stock: Stock) -> String {
         if let open = stock.quote?.open,
             let latest = stock.quote?.latestPrice {
