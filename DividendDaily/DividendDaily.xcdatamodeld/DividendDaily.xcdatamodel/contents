@@ -51,7 +51,7 @@
         <attribute name="ytdChange" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="quote" inverseEntity="Stock" syncable="YES"/>
     </entity>
-    <entity name="Stock" representedClassName=".Stock" syncable="YES" codeGenerationType="category">
+    <entity name="Stock" representedClassName=".Stock" syncable="YES">
         <attribute name="ticker" attributeType="String" syncable="YES"/>
         <relationship name="dividend" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Dividend" inverseName="stock" inverseEntity="Dividend" syncable="YES"/>
         <relationship name="quote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quote" inverseName="stock" inverseEntity="Quote" syncable="YES"/>
