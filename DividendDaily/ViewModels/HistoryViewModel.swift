@@ -24,10 +24,10 @@ class HistoryViewModel {
         upcomingExDividends = []
         
         StockManager.shared.stocks.forEach {
-            guard let div = $0.dividend?.first?.exDate else { return }
-            let name = $0.ticker.uppercased()
-            let text = name + HistoryViewModel.ex
-            upcomingExDividends.append([text: div])
+            
+            guard let div = $0.dividend?.firstObject as? Dividend else { return }
+            let text = $0.ticker + HistoryViewModel.ex
+            upcomingExDividends.append([text: div.exDate])
         }
         var filtered = dividendsIn(30, for: upcomingExDividends)
         upcomingExDividends = sortDivs(dividends: &filtered)
@@ -36,9 +36,9 @@ class HistoryViewModel {
     func lookPayment() {
         upcomingPayments = []
         StockManager.shared.stocks.forEach {
-            guard let div = $0.dividend?.first else { return }
-            let name = $0.ticker.uppercased()
-            let text = name + HistoryViewModel.payable
+
+            guard let div = $0.dividend?.firstObject as? Dividend else { return }
+            let text = $0.ticker + HistoryViewModel.payable
             upcomingPayments.append([text: div.paymentDate])
         }
         var filtered = dividendsIn(30, for: upcomingPayments)

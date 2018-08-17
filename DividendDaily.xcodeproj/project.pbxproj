@@ -129,7 +129,6 @@
 				03180A5120F2F9A70048CDC0 /* Info.plist */,
 				03180A4920F2F9A60048CDC0 /* DividendDaily.xcdatamodeld */,
 				03962CFE211BB3F000C7BFD0 /* Utilities + Extensions.swift */,
-				03D49468211F677F00813D26 /* CoreDataStack.swift */,
 			);
 			path = DividendDaily;
 			sourceTree = "<group>";
@@ -199,6 +198,7 @@
 		03DE25FB210F49D6008AFCF6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				03D49468211F677F00813D26 /* CoreDataStack.swift */,
 				03DE25FC210F49EC008AFCF6 /* StockManager.swift */,
 			);
 			path = Managers;

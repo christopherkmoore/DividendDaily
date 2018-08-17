@@ -35,13 +35,19 @@ class PortfolioViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
         func search(with text: String) {
-            let incompleteStock = Stock(ticker: text.uppercased(), quote: nil, dividend: nil)
-            
-            IEXApiClient.shared.getStock(incompleteStock) { (success, result) in
-                guard success else { return }
-                if let stock = result {
-                    StockManager.shared.add(stock)
+            do {
+                let ticker = text.uppercased()
+                
+                IEXApiClient.shared.getStock(ticker) { (success, result) in
+                    guard success else { return }
+                    if let stock = result {
+                        
+                        StockManager.shared.add(stock)
+                    }
                 }
+                
+            } catch let error {
+                print(error.localizedDescription)
             }
         }
     }

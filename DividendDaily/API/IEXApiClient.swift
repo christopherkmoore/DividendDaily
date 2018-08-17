@@ -95,8 +95,8 @@ class IEXApiClient {
     }
     */
     
-    public func getStock(_ stock: Stock, completion: @escaping (Bool, Stock?) -> Void) {
-        var temp = Stock(stock)
+    public func getStock(_ ticker: String, completion: @escaping (Bool, Stock?) -> Void) {
+        var temp = try! Stock(ticker: ticker, quote: nil, dividend: nil)
         let dispatch = DispatchGroup()
         dispatch.enter()
         
@@ -104,30 +104,19 @@ class IEXApiClient {
             dispatch.leave()
             completion(false, nil)
         }
-        guard let request = buildURL(for: stock.ticker, with: nil, and: .quotes) else { return }
+        
+        guard let request = buildURL(for: ticker, with: nil, and: .quotes) else { return }
         session.dataTask(with: request) { [weak self] (data, request, error) in
             
-            guard let data = data else { return }
-            
-            guard let result = self?.getResults(data, request, error) else {
-                if let error = error {
-                    print(error.localizedDescription)
-                    completion(false, nil)
-                }
-                return
-            }
-            
-            let dict = result as! [String: Any]
-            guard let shavedParentDictionary = dict["quote"] else {
-                print("\(IEXError.missingParentObject.localizedDescription) for  \(dict)")
+            guard let data = data else {
+                print(error?.localizedDescription ?? "Error finding stock info for \(ticker)")
                 return
             }
             
             var quote: Quote?
 
             do {
-                let backToData = try JSONSerialization.data(withJSONObject: shavedParentDictionary)
-                quote = try JSONDecoder().decode(Quote.self, from: backToData)
+                quote = try JSONDecoder().decode(Quote.self, from: data)
                 temp.quote = quote
 
             } catch let error {
@@ -139,7 +128,8 @@ class IEXApiClient {
                 dispatch.enter()
                 
                 if let dividend = dividend {
-                    temp.dividend = dividend
+                    let set = NSOrderedSet(array: dividend)
+                    temp.dividend = set
                     dispatch.leave()
                     completion(true, temp)
                     // maybe dividend doesn't exist
@@ -257,12 +247,12 @@ extension IEXApiClient {
             if i == 0 { continue }
             if i % (4 + last) == 0 {
                 let ex = array[i-4]
-                let cashAmount = Double(array[i-3])
+                guard let cashAmount = Double(array[i-3]) else { print("Error retriving dividend in \(#function)"); return nil }
                 let declaration = array[i-2]
                 let record = array[i-1]
                 let payment = array[i]
 
-                let div = Dividend(exDate: ex, paymentDate: payment, recordDate: record, declaredDate: declaration, amount: cashAmount, flag: nil, type: "Cash", qualified: nil, indicated: nil)
+                let div = Dividend(exDate: ex, paymentDate: payment, recordDate: record, declaredDate: declaration, amount: cashAmount, dividendType: "Cash")
                 dividends.append(div)
                 last = i + 1
             }

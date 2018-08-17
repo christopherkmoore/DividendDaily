@@ -17,7 +17,7 @@ final class CoreDataManager {
     
     private init() {}
     
-    private static let shared = CoreDataManager()
+    public static let shared = CoreDataManager()
     
     // MARK: - Core Date Properties
     
@@ -59,5 +59,13 @@ final class CoreDataManager {
         return persistentStore
     }()
     
-
+    public func save() {
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

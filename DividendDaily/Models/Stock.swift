@@ -7,27 +7,26 @@
 //
 
 import Foundation
+import CoreData
 
-struct Stock: Equatable, Codable {
+class Stock: NSManagedObject {
 
-    init(_ stock: Stock) {
-        self = stock
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
-    init(ticker: String, quote: Quote? = nil, dividend: [Dividend]? = nil) {
-        self.ticker = ticker
-        self.quote = quote
-        self .dividend = dividend
-    }
-    
-    public var ticker: String
-    public var quote: Quote?
-    public var dividend: [Dividend]?
-    
-    static func == (lhs: Stock, rhs: Stock) -> Bool {
-        return
-            lhs.dividend == rhs.dividend &&
-            lhs.quote == rhs.quote &&
-            lhs.ticker == rhs.ticker
+    init(ticker: String, quote: Quote? = nil, dividend: NSOrderedSet? = nil) throws {
+        
+        if let entity = NSEntityDescription.entity(forEntityName: "Stock", in: CoreDataManager.shared.managedObjectContext) {
+            super.init(entity: entity, insertInto: CoreDataManager.shared.managedObjectContext)
+            
+            self.ticker = ticker
+            self.quote = quote
+            self.dividend = dividend
+        } else {
+            throw InitializationError.CoreDataError
+        }
     }
 }
+
+
