@@ -66,15 +66,35 @@ class StockManager {
      - parameters:
         - stock: the stock to be added.
      */
+    
     public func add(_ stock: Stock) {
-        if !stocks.contains(where: { $0 == stock }) {
+        if !stocks.contains(where: {$0.ticker == stock.ticker}) {
             stocks.append(stock)
             CoreDataManager.shared.save()
-            
-            for (_, delegate) in delegates.allObjects.enumerated() {
-                guard let delegate = delegate as? StockManagerDelegate else { return }
-                delegate.stocksDidUpdate()
-            }
+            notifyDelegates()
+        }
+    }
+    
+    /**
+     Will remove a stock to a private(set) array managed by the StockManager. *WARNING* If a stock is successfully removed, all items in the managed object context will be saved, and delegates will also be notified of the change.
+     
+     - parameters:
+     - at index: The index at which to remove the stock.
+     */
+    
+    public func remove(at index: Int) {
+        if index < stocks.count {
+            let stock = stocks.remove(at: index) as NSManagedObject
+            CoreDataManager.shared.delete(stock)
+            notifyDelegates()
+        }
+    }
+    
+    /// Notify Delegates of a change in the porfolio so views can be refreshed
+    private func notifyDelegates() {
+        for (_, delegate) in delegates.allObjects.enumerated() {
+            guard let delegate = delegate as? StockManagerDelegate else { return }
+            delegate.stocksDidUpdate()
         }
     }
     
@@ -97,13 +117,23 @@ class StockManager {
         }
     }
     
+    public func refreshStocks() {
+        IEXApiClient.shared.refreshQuote(for: stocks) { (success, stocks) in
+            guard success else { return }
+            guard let updatedStocks = stocks else { return }
+
+            self.stocks = updatedStocks
+            CoreDataManager.shared.save()
+            self.notifyDelegates()
+        }
+    }
+    
     /// Call to core data to retrieve a portfolio.
     private func retrievePortfolio() -> [Stock] {
         let request = NSFetchRequest<Stock>(entityName: "Stock")
         
         do {
             let result = try CoreDataManager.shared.managedObjectContext.fetch(request)
-            print(result)
             return result
         } catch let error {
             print(error.localizedDescription)

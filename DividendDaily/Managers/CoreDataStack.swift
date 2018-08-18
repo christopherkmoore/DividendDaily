@@ -59,6 +59,14 @@ final class CoreDataManager {
         return persistentStore
     }()
     
+    public func delete(_ object: NSManagedObject) {
+        do {
+            managedObjectContext.delete(object)
+            try managedObjectContext.save()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
     public func save() {
         if managedObjectContext.hasChanges {
             do {

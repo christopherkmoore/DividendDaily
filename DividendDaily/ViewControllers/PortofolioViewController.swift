@@ -15,6 +15,7 @@ class PortfolioViewController: UIViewController {
     
     var viewModel = PortofolioViewModel()
     weak var stockDelegate: StockManagerDelegate!
+    private var refreshControl = UIRefreshControl()
 
     @IBAction func addStock(_ sender: Any) {
         let alert = UIAlertController(title: "add new stock", message: "What would you like to add?", preferredStyle: .alert)
@@ -62,9 +63,18 @@ class PortfolioViewController: UIViewController {
         
         stockTableView.delegate = self
         stockTableView.dataSource = self
+        stockTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshStocks), for: .valueChanged)
         
         stockTableView.register(StockTableViewCell.nib, forCellReuseIdentifier: StockTableViewCell.identifier)
         stockTableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    @objc func refreshStocks() {
+        StockManager.shared.refreshStocks()
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
@@ -87,5 +97,32 @@ extension PortfolioViewController: UITableViewDelegate, UITableViewDataSource {
         cell.set(using: viewModel, at: indexPath.row)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard
+            let stock = StockManager.shared.stock(at: indexPath.row),
+            let controller = storyboard?.instantiateViewController(withIdentifier: "StockDetailViewController") as? StockDetailViewController else {
+            return
+        }
+        
+        controller.stock = stock
+        self.showDetailViewController(controller, sender: self)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            StockManager.shared.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
     }
 }

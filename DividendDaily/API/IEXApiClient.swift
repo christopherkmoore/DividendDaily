@@ -31,6 +31,7 @@ class IEXApiClient {
         case types = "types="
         case dividends = "dividends/"
         case symbols = "symbols="
+        case market = "market/"
     }
     
     public enum Requests {
@@ -95,6 +96,39 @@ class IEXApiClient {
     }
     */
     
+    
+    /* TODO: probably a good idea to submit a batch request */
+    public func refreshQuote(for stocks: [Stock], completion: @escaping (Bool, [Stock]?) -> Void) {
+        guard let request = buildBatchURL(for: stocks) else { return }
+        
+        session.dataTask(with: request) {[stocks] (data, response, error) in
+            
+            guard let data = data else {
+//                print(error?.localizedDescription ?? "Error finding stock info for \(stock.ticker)")
+                return
+            }
+            guard let result = self.getResults(data, response, error) else { return }
+            
+            
+            /* this is garbage code and needs debugging */
+            result.forEach { (key, value) in
+                
+                let something = stocks.map { ( stock) -> Stock in
+                    if stock.ticker == key {
+                        do {
+                            let data: Data = try JSONSerialization.data(withJSONObject: value, options: JSONSerialization.WritingOptions.prettyPrinted)
+                            stock.quote = try JSONDecoder().decode(Quote.self, from: data)
+                        } catch let error {
+                            print(error.localizedDescription)
+                        }
+                    }
+                    return stock
+                }
+                completion(true, something)
+            }
+        }.resume()
+    }
+    
     public func getStock(_ ticker: String, completion: @escaping (Bool, Stock?) -> Void) {
         var temp = try! Stock(ticker: ticker, quote: nil, dividend: nil)
         let dispatch = DispatchGroup()
@@ -138,6 +172,20 @@ class IEXApiClient {
         }.resume()
     }
     
+    private func buildBatchURL( for stocks: [Stock]) -> URLRequest? {
+        var urlString = IEXApiClient.baseUrl + Endpoints.stock.rawValue + Endpoints.market.rawValue
+
+        let commaSeperatedTickersArray = stocks.compactMap { $0.ticker + "," }
+        let commaSeperatedTickers = commaSeperatedTickersArray.joined()
+        urlString += Endpoints.batch.rawValue + Endpoints.symbols.rawValue + commaSeperatedTickers + "&" + Endpoints.types.rawValue + Types.quote.rawValue
+        
+        guard let url = URL(string: urlString) else {
+            return nil
+        }
+        
+        return URLRequest(url: url)
+    }
+    
     private func buildURL(for stocks: String, with types: Types?, and requests: Requests?) -> URLRequest? {
         var url = IEXApiClient.baseUrl + Endpoints.stock.rawValue
 
@@ -164,13 +212,13 @@ class IEXApiClient {
 
     }
     
-    private func getResults(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> AnyObject? {
+    private func getResults(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> [String: AnyObject]? {
         guard let data = data else { return nil }
         
-        var result: AnyObject?
+        var result: [String: AnyObject]?
         
         do {
-            result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
+            result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject]
         } catch let error {
             print(error.localizedDescription)
         }

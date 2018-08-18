@@ -18,6 +18,7 @@ class StockTableViewCell: UITableViewCell {
     @IBOutlet weak var tickerLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var todaysChangeLabel: UILabel!
+    @IBOutlet weak var percentChangelabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,12 +35,16 @@ class StockTableViewCell: UITableViewCell {
         
         priceLabel.text = "$" + String(format: "%.2f", stock.quote?.latestPrice ?? 0)
         let todaysChange = viewModel.todaysChange(stock)
+        
         if todaysChange.first == "-" {
             todaysChangeLabel.textColor = .red
+            percentChangelabel.textColor = .red
         } else {
             todaysChangeLabel.textColor = .green
+            percentChangelabel.textColor = .green
         }
         todaysChangeLabel.text = todaysChange
+        percentChangelabel.text = viewModel.todaysChangePercent(stock)
     }
     
     

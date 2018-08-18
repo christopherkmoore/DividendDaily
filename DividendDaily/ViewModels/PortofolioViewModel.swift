@@ -26,5 +26,13 @@ class PortofolioViewModel {
         return ""
     }
     
-    
+    public func todaysChangePercent(_ stock: Stock) -> String {
+        if
+            let openPrice = stock.quote?.open,
+            let current = stock.quote?.latestPrice {
+                let diff = ((current - openPrice) / openPrice) * -100
+                return String(format: "%.2f", diff) + "%"
+        }
+        return "--"
+    }
 }

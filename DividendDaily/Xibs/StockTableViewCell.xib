@@ -11,19 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="114" id="KpN-ei-yRr" customClass="StockTableViewCell" customModule="DividendDaily" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="552" height="114"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="KpN-ei-yRr" customClass="StockTableViewCell" customModule="DividendDaily" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="552" height="76"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KpN-ei-yRr" id="o5b-d5-hlR">
-                <rect key="frame" x="0.0" y="0.0" width="552" height="113.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="552" height="75.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGJ-xK-s7U">
-                        <rect key="frame" x="20" y="51" width="37.5" height="52"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETa-Ay-1nJ" userLabel="Ticker Label">
                         <rect key="frame" x="20" y="11" width="48" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -31,37 +25,54 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2a-7X-c2l" userLabel="Price Label">
-                        <rect key="frame" x="397.5" y="11" width="52" height="24"/>
+                        <rect key="frame" x="415.5" y="11" width="52" height="24"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhh-Ut-SEJ" userLabel="Todays Change Label">
-                        <rect key="frame" x="489.5" y="43.5" width="52.5" height="26.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <rect key="frame" x="483.5" y="11" width="48" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8q-bh-aQ8" userLabel="Todays Change Label">
+                        <rect key="frame" x="491.5" y="45" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGJ-xK-s7U">
+                        <rect key="frame" x="20" y="45" width="448" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="jGJ-xK-s7U" secondAttribute="bottom" constant="10.5" id="D3f-yU-ZFb"/>
                     <constraint firstItem="ETa-Ay-1nJ" firstAttribute="top" secondItem="o5b-d5-hlR" secondAttribute="top" constant="11" id="E8Y-R3-Nmm"/>
                     <constraint firstItem="ETa-Ay-1nJ" firstAttribute="leading" secondItem="o5b-d5-hlR" secondAttribute="leading" constant="20" id="FNB-g5-5JH"/>
+                    <constraint firstItem="Vhh-Ut-SEJ" firstAttribute="top" secondItem="o5b-d5-hlR" secondAttribute="top" constant="11" id="KHO-Bl-mnM"/>
+                    <constraint firstItem="m8q-bh-aQ8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jGJ-xK-s7U" secondAttribute="trailing" priority="750" constant="23.5" id="OgQ-hr-jJr"/>
+                    <constraint firstAttribute="bottom" secondItem="m8q-bh-aQ8" secondAttribute="bottom" constant="10" id="RQO-Uk-BVU"/>
                     <constraint firstItem="jGJ-xK-s7U" firstAttribute="leading" secondItem="o5b-d5-hlR" secondAttribute="leading" constant="20" id="Uvt-Hu-6cE"/>
-                    <constraint firstItem="jGJ-xK-s7U" firstAttribute="top" secondItem="ETa-Ay-1nJ" secondAttribute="bottom" constant="16" id="ZBB-kF-4NM"/>
-                    <constraint firstItem="Vhh-Ut-SEJ" firstAttribute="leading" secondItem="c2a-7X-c2l" secondAttribute="trailing" constant="40" id="Zdg-Yx-Ctc"/>
-                    <constraint firstAttribute="trailing" secondItem="Vhh-Ut-SEJ" secondAttribute="trailing" constant="10" id="pj4-5e-OY8"/>
-                    <constraint firstItem="Vhh-Ut-SEJ" firstAttribute="centerY" secondItem="o5b-d5-hlR" secondAttribute="centerY" id="sl8-7l-mdq"/>
+                    <constraint firstItem="jGJ-xK-s7U" firstAttribute="top" secondItem="ETa-Ay-1nJ" secondAttribute="bottom" constant="10" id="ZBB-kF-4NM"/>
+                    <constraint firstItem="Vhh-Ut-SEJ" firstAttribute="leading" secondItem="c2a-7X-c2l" secondAttribute="trailing" constant="16" id="Zdg-Yx-Ctc"/>
+                    <constraint firstAttribute="bottom" secondItem="jGJ-xK-s7U" secondAttribute="bottom" constant="12.5" id="kXG-3c-EaW"/>
+                    <constraint firstAttribute="trailing" secondItem="Vhh-Ut-SEJ" secondAttribute="trailing" constant="20.5" id="pj4-5e-OY8"/>
+                    <constraint firstAttribute="trailing" secondItem="m8q-bh-aQ8" secondAttribute="trailing" constant="18.5" id="rSa-9M-HQn"/>
                     <constraint firstItem="c2a-7X-c2l" firstAttribute="top" secondItem="o5b-d5-hlR" secondAttribute="top" constant="11" id="tM6-Pk-C2w"/>
+                    <constraint firstItem="m8q-bh-aQ8" firstAttribute="top" secondItem="Vhh-Ut-SEJ" secondAttribute="bottom" constant="10" id="vR5-FL-egv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="percentChangelabel" destination="m8q-bh-aQ8" id="PpI-p4-MV2"/>
                 <outlet property="priceLabel" destination="c2a-7X-c2l" id="3Tc-UI-dzf"/>
                 <outlet property="stockNameLabel" destination="jGJ-xK-s7U" id="LrV-M2-j91"/>
                 <outlet property="tickerLabel" destination="ETa-Ay-1nJ" id="iTz-P5-OhG"/>
                 <outlet property="todaysChangeLabel" destination="Vhh-Ut-SEJ" id="fCm-uG-oh6"/>
             </connections>
-            <point key="canvasLocation" x="-67" y="3"/>
+            <point key="canvasLocation" x="-67" y="-16"/>
         </tableViewCell>
     </objects>
 </document>
