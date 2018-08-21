@@ -30,6 +30,15 @@
 		03DE2604210F5849008AFCF6 /* Dividend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE2603210F5849008AFCF6 /* Dividend.swift */; };
 		03E1CA20212896CD002DCA3E /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1CA1F212896CD002DCA3E /* StockDetailViewController.swift */; };
 		03E1CA2221289750002DCA3E /* StockDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1CA2121289750002DCA3E /* StockDetailViewModel.swift */; };
+		03F92855212B988700F6DE00 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F92854212B988700F6DE00 /* BannerTableViewCell.swift */; };
+		03F92857212B991800F6DE00 /* MarketMetricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F92856212B991800F6DE00 /* MarketMetricsTableViewCell.swift */; };
+		03F92859212B994700F6DE00 /* DividendMetricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F92858212B994700F6DE00 /* DividendMetricsTableViewCell.swift */; };
+		03F9285B212B996E00F6DE00 /* ModifySharesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F9285A212B996E00F6DE00 /* ModifySharesTableViewCell.swift */; };
+		03F9285D212B9A8800F6DE00 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F9285C212B9A8800F6DE00 /* BannerTableViewCell.xib */; };
+		03F9285F212B9AAC00F6DE00 /* MarketMetricsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F9285E212B9AAC00F6DE00 /* MarketMetricsTableViewCell.xib */; };
+		03F92861212B9AC200F6DE00 /* DividendMetricsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F92860212B9AC200F6DE00 /* DividendMetricsTableViewCell.xib */; };
+		03F92863212B9ADE00F6DE00 /* ModifySharesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F92862212B9ADE00F6DE00 /* ModifySharesTableViewCell.xib */; };
+		03F92865212BA22B00F6DE00 /* ChartPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F92864212BA22B00F6DE00 /* ChartPoint.swift */; };
 		D50C7842C7DEE6F4847B74A3 /* libPods-DividendDaily.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3258A9FF890FA6E8458ADB /* libPods-DividendDaily.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +80,15 @@
 		03DE2603210F5849008AFCF6 /* Dividend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dividend.swift; sourceTree = "<group>"; };
 		03E1CA1F212896CD002DCA3E /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		03E1CA2121289750002DCA3E /* StockDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewModel.swift; sourceTree = "<group>"; };
+		03F92854212B988700F6DE00 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
+		03F92856212B991800F6DE00 /* MarketMetricsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMetricsTableViewCell.swift; sourceTree = "<group>"; };
+		03F92858212B994700F6DE00 /* DividendMetricsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividendMetricsTableViewCell.swift; sourceTree = "<group>"; };
+		03F9285A212B996E00F6DE00 /* ModifySharesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifySharesTableViewCell.swift; sourceTree = "<group>"; };
+		03F9285C212B9A8800F6DE00 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerTableViewCell.xib; sourceTree = "<group>"; };
+		03F9285E212B9AAC00F6DE00 /* MarketMetricsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketMetricsTableViewCell.xib; sourceTree = "<group>"; };
+		03F92860212B9AC200F6DE00 /* DividendMetricsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DividendMetricsTableViewCell.xib; sourceTree = "<group>"; };
+		03F92862212B9ADE00F6DE00 /* ModifySharesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifySharesTableViewCell.xib; sourceTree = "<group>"; };
+		03F92864212BA22B00F6DE00 /* ChartPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPoint.swift; sourceTree = "<group>"; };
 		231A1F422D5C96461CBDD249 /* Pods-DividendDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DividendDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.release.xcconfig"; sourceTree = "<group>"; };
 		42E85DC5A4E3A44EBFF4453F /* Pods-DividendDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DividendDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DividendDaily/Pods-DividendDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		EB3258A9FF890FA6E8458ADB /* libPods-DividendDaily.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DividendDaily.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +170,7 @@
 				03180A6820F2FA300048CDC0 /* Stock.swift */,
 				033918B620F46D5D0004E8EB /* Quote.swift */,
 				03DE2603210F5849008AFCF6 /* Dividend.swift */,
+				03F92864212BA22B00F6DE00 /* ChartPoint.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +200,10 @@
 			children = (
 				03180A6F20F4431A0048CDC0 /* StockTableViewCell.xib */,
 				03DE2600210F515D008AFCF6 /* HistoryTableViewCell.xib */,
+				03F9285C212B9A8800F6DE00 /* BannerTableViewCell.xib */,
+				03F9285E212B9AAC00F6DE00 /* MarketMetricsTableViewCell.xib */,
+				03F92860212B9AC200F6DE00 /* DividendMetricsTableViewCell.xib */,
+				03F92862212B9ADE00F6DE00 /* ModifySharesTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -190,6 +213,10 @@
 			children = (
 				03180A7220F443640048CDC0 /* StockTableViewCell.swift */,
 				03DE25FE210F50E3008AFCF6 /* HistoryTableViewCell.swift */,
+				03F92854212B988700F6DE00 /* BannerTableViewCell.swift */,
+				03F92856212B991800F6DE00 /* MarketMetricsTableViewCell.swift */,
+				03F92858212B994700F6DE00 /* DividendMetricsTableViewCell.swift */,
+				03F9285A212B996E00F6DE00 /* ModifySharesTableViewCell.swift */,
 			);
 			path = XibSwiftFiles;
 			sourceTree = "<group>";
@@ -317,11 +344,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F9285F212B9AAC00F6DE00 /* MarketMetricsTableViewCell.xib in Resources */,
 				03180A5020F2F9A70048CDC0 /* LaunchScreen.storyboard in Resources */,
 				03DE2601210F515D008AFCF6 /* HistoryTableViewCell.xib in Resources */,
 				03180A4D20F2F9A70048CDC0 /* Assets.xcassets in Resources */,
+				03F92861212B9AC200F6DE00 /* DividendMetricsTableViewCell.xib in Resources */,
 				03180A7020F4431A0048CDC0 /* StockTableViewCell.xib in Resources */,
 				03180A4820F2F9A60048CDC0 /* Main.storyboard in Resources */,
+				03F92863212B9ADE00F6DE00 /* ModifySharesTableViewCell.xib in Resources */,
+				03F9285D212B9A8800F6DE00 /* BannerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,16 +394,21 @@
 				03E1CA20212896CD002DCA3E /* StockDetailViewController.swift in Sources */,
 				03D49469211F677F00813D26 /* CoreDataStack.swift in Sources */,
 				03180A6B20F2FA640048CDC0 /* PortofolioViewController.swift in Sources */,
+				03F92855212B988700F6DE00 /* BannerTableViewCell.swift in Sources */,
+				03F92857212B991800F6DE00 /* MarketMetricsTableViewCell.swift in Sources */,
+				03F9285B212B996E00F6DE00 /* ModifySharesTableViewCell.swift in Sources */,
 				03180A4320F2F9A60048CDC0 /* AppDelegate.swift in Sources */,
 				03DE25FD210F49EC008AFCF6 /* StockManager.swift in Sources */,
 				03180A4B20F2F9A60048CDC0 /* DividendDaily.xcdatamodeld in Sources */,
 				03180A6920F2FA300048CDC0 /* Stock.swift in Sources */,
 				033918B720F46D5D0004E8EB /* Quote.swift in Sources */,
+				03F92859212B994700F6DE00 /* DividendMetricsTableViewCell.swift in Sources */,
 				03E1CA2221289750002DCA3E /* StockDetailViewModel.swift in Sources */,
 				03DE25FF210F50E3008AFCF6 /* HistoryTableViewCell.swift in Sources */,
 				03DE25FA210F48AD008AFCF6 /* HistoryViewModel.swift in Sources */,
 				03962CFF211BB3F000C7BFD0 /* Utilities + Extensions.swift in Sources */,
 				03180A7320F443640048CDC0 /* StockTableViewCell.swift in Sources */,
+				03F92865212BA22B00F6DE00 /* ChartPoint.swift in Sources */,
 				03DE2604210F5849008AFCF6 /* Dividend.swift in Sources */,
 				03DE25F8210F48A2008AFCF6 /* HistoryViewController.swift in Sources */,
 				03180A7520F444010048CDC0 /* PortofolioViewModel.swift in Sources */,

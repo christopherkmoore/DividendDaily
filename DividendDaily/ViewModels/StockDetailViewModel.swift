@@ -10,5 +10,11 @@ import Foundation
 
 class StockDetailViewModel {
     
+    public let stock: Stock
+    
+    init(using stock: Stock) {
+        self.stock = stock
+    }
+    
     
 }

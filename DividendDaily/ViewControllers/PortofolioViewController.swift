@@ -104,7 +104,8 @@ extension PortfolioViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         controller.stock = stock
-        self.showDetailViewController(controller, sender: self)
+        controller.viewModel = StockDetailViewModel(using: stock)
+        navigationController?.show(controller, sender: self)
         
     }
     
