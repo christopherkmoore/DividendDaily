@@ -39,6 +39,7 @@ class ChartPoint: NSManagedObject, Decodable {
     @NSManaged public var vwap: Double
     @NSManaged public var dateLabelMMMddyy: String
     @NSManaged public var changeOverTime: Double
+    @NSManaged public var stock: Stock?
     
     enum CodingKeys: String, CodingKey {
         case date

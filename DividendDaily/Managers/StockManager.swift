@@ -76,6 +76,24 @@ class StockManager {
     }
     
     /**
+     Certain Core Data objects are initialized and have properties set later. Chart Points is an example of a delayed fetch where the object is instead 'updated' instead of saved again completely. The in memory array is updated by the Stock Manager, and updated by the Core Data Manager
+     
+     - parameters:
+     - stock: The stock to be updated
+     - using chartPoints: the chart points to be added to the Stock object.
+     */
+
+    
+    public func update(_ stock: Stock, using chartPoints: NSOrderedSet) {
+        var updatedStocks: [Stock]
+        updatedStocks = stocks.filter {
+            $0.ticker != stock.ticker
+        }
+        updatedStocks.append(stock)
+        CoreDataManager.shared.update(stock, using: chartPoints)
+    }
+    
+    /**
      Will remove a stock to a private(set) array managed by the StockManager. *WARNING* If a stock is successfully removed, all items in the managed object context will be saved, and delegates will also be notified of the change.
      
      - parameters:
@@ -103,7 +121,7 @@ class StockManager {
         
         for index in 0..<stocks.count {
             if stocks[index].dividend == nil {
-                IEXApiClient.shared.scrapeDividends(stocks[index]) { (dividends, error) in
+                IEXApiClient.shared.scrapeDividends(stocks[index].ticker) { (dividends, error) in
                     if let error = error {
                         print(error.localizedDescription)
                     }

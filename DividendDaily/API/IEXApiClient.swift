@@ -32,11 +32,14 @@ class IEXApiClient {
         case dividends = "dividends/"
         case symbols = "symbols="
         case market = "market/"
+        case chartInterval = "chartInterval="
+        case range = "&range="
     }
     
     public enum Requests {
         case dividends
         case quotes
+        case chart
     }
     
     public enum Duration: String {
@@ -47,13 +50,14 @@ class IEXApiClient {
         case y1 = "1y"
         case y2 = "2y"
         case y5 = "5y"
+        case marketMonthInDays = "24"
     }
     
     public enum Types: String {
     
         case quote = "quote,"
         case news = "news,"
-        case chart = "chart,"
+        case chart = "chart?"
     }
     
     public static let shared = IEXApiClient()
@@ -63,7 +67,7 @@ class IEXApiClient {
     private init() {}
     
     
-    /** Probably best to stay away from this func for the time being. See note in Extension below
+    /* Probably best to stay away from this func for the time being. See note in Extension below
     public func getDividend(for stock: String, completion: @escaping (Bool, [Dividend]?) -> Void) {
         
         guard let request = buildURL(for: stock, with: nil, and: .dividends) else { return }
@@ -96,6 +100,34 @@ class IEXApiClient {
     }
     */
     
+    public func getChartData(for stock: Stock, completion: @escaping (Bool, Stock?) -> Void) {
+        
+        // ex URL https://api.iextrading.com/1.0/stock/aapl/chart?chartInterval=24&range=1y
+        guard let request = buildURL(for: stock.ticker, with: nil, and: .chart) else { return }
+        
+        session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                print(error?.localizedDescription as Any)
+                completion(false, nil)
+                return
+            }
+            
+            var chartPoints: [ChartPoint]
+            
+            do {
+                chartPoints = try JSONDecoder().decode(Array<ChartPoint>.self, from: data)
+                let set = NSOrderedSet(array: chartPoints)
+                stock.chartPoints = set
+            } catch let error {
+                print(error.localizedDescription)
+                completion(false, nil)
+            }
+            completion(true, stock)
+            
+        }.resume()
+        
+    }
+    
     
     /* TODO: probably a good idea to submit a batch request */
     public func refreshQuote(for stocks: [Stock], completion: @escaping (Bool, [Stock]?) -> Void) {
@@ -107,6 +139,7 @@ class IEXApiClient {
 //                print(error?.localizedDescription ?? "Error finding stock info for \(stock.ticker)")
                 return
             }
+
             guard let result = self.getResults(data, response, error) else { return }
             
             
@@ -130,7 +163,6 @@ class IEXApiClient {
     }
     
     public func getStock(_ ticker: String, completion: @escaping (Bool, Stock?) -> Void) {
-        var temp = try! Stock(ticker: ticker, quote: nil, dividend: nil)
         let dispatch = DispatchGroup()
         dispatch.enter()
         
@@ -151,23 +183,25 @@ class IEXApiClient {
 
             do {
                 quote = try JSONDecoder().decode(Quote.self, from: data)
-                temp.quote = quote
 
             } catch let error {
                 print(error.localizedDescription)
                 return
             }
             
-            self?.scrapeDividends(temp) { (dividend, error) in
+            self?.scrapeDividends(ticker) { (dividend, error) in
                 dispatch.enter()
                 
                 if let dividend = dividend {
                     let set = NSOrderedSet(array: dividend)
-                    temp.dividend = set
+                    let stock = try! Stock(ticker: ticker, quote: quote, dividend: set)
                     dispatch.leave()
-                    completion(true, temp)
+                    completion(true, stock)
                     // maybe dividend doesn't exist
-                } else { completion(true, temp) }
+                } else {
+                    let stock = try! Stock(ticker: ticker, quote: quote, dividend: nil)
+                    completion(true, stock)
+                }
             }
         }.resume()
     }
@@ -193,6 +227,8 @@ class IEXApiClient {
         
         if let request = requests {
             switch request {
+            case .chart:
+                url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + Duration.marketMonthInDays.rawValue + Endpoints.range.rawValue + Duration.y1.rawValue
             case .dividends:
                 url += Endpoints.dividends.rawValue + Duration.y5.rawValue
             case .quotes:
@@ -235,13 +271,13 @@ class IEXApiClient {
 extension IEXApiClient {
     
     /// Default 5 yr div history
-    public func scrapeDividends(_ stock: Stock, completion: @escaping ([Dividend]?, Error?) -> Void ) {
+    public func scrapeDividends(_ stock: String, completion: @escaping ([Dividend]?, Error?) -> Void ) {
         
-        if stock.ticker == "" { completion(nil, IEXError.stockNameEmpty) }
+        if stock == "" { completion(nil, IEXError.stockNameEmpty) }
         
         // hopefully no one minds this... it's publically available information.
         let base = "https://www.nasdaq.com/symbol/"
-        let ticker = stock.ticker + "/"
+        let ticker = stock + "/"
         let whole = base + ticker + "dividend-history"
         
         

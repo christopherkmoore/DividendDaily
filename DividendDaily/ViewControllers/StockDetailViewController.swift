@@ -26,6 +26,7 @@ class StockDetailViewController: UIViewController {
         
         if viewModel == nil {
             self.viewModel = StockDetailViewModel(using: stock)
+            viewModel.getChartData(for: stock)
         }
         registerCells()
         tableView.delegate = self
