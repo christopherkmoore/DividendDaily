@@ -35,4 +35,14 @@ class PortofolioViewModel {
         }
         return "--"
     }
+    
+    public var lastUpdatedTime: Date? {
+        
+        guard let last = StockManager.shared.stocks.first?.quote?.latestUpdate else { return nil }
+        let formatted = Double(last) * 0.001
+        let interval = TimeInterval(formatted)
+        return Date(timeIntervalSince1970: interval)
+        
+        
+    }
 }

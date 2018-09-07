@@ -62,6 +62,7 @@ class PortfolioViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshStocks), for: .valueChanged)
         
         stockTableView.register(StockTableViewCell.nib, forCellReuseIdentifier: StockTableViewCell.identifier)
+        stockTableView.register(LastUpdatedTableViewCell.nib, forCellReuseIdentifier: LastUpdatedTableViewCell.identifier)
         stockTableView.rowHeight = UITableViewAutomaticDimension
     }
     
@@ -82,23 +83,37 @@ extension PortfolioViewController: StockManagerDelegate {
 }
 
 extension PortfolioViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    /* IMPORTANT: Because of the first cell showing last updated, indexPath.row are offset by -1 */
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCells
+        return viewModel.numberOfCells + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StockTableViewCell.identifier) as? StockTableViewCell else { return UITableViewCell() }
         
-        cell.set(using: viewModel, at: indexPath.row)
-        
-        return cell
+        // Shows Last Updated cell
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: LastUpdatedTableViewCell.identifier) as? LastUpdatedTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.set(using: viewModel, at: indexPath.row)
+            return cell
+        } else {
+            // shows portfolio cells
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: StockTableViewCell.identifier) as? StockTableViewCell else { return UITableViewCell() }
+            
+            cell.set(using: viewModel, at: indexPath.row - 1)
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard
-            let stock = StockManager.shared.stock(at: indexPath.row),
+            let stock = StockManager.shared.stock(at: indexPath.row - 1),
             let controller = storyboard?.instantiateViewController(withIdentifier: "StockDetailViewController") as? StockDetailViewController else {
             return
         }
@@ -114,7 +129,7 @@ extension PortfolioViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            StockManager.shared.remove(at: indexPath.row)
+            StockManager.shared.remove(at: indexPath.row - 1)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
