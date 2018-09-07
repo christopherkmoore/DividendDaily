@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ChartPoint" representedClassName=".ChartPoint" syncable="YES">
+        <attribute name="change" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="changeOverTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="changePercent" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="close" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="String" syncable="YES"/>
+        <attribute name="dateLabelMMMddyy" attributeType="String" syncable="YES"/>
+        <attribute name="high" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="low" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="open" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unadjustedVolume" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="volume" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vwap" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="chartPoints" inverseEntity="Stock" syncable="YES"/>
+    </entity>
     <entity name="Dividend" representedClassName=".Dividend" syncable="YES">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="declaredDate" attributeType="String" syncable="YES"/>
@@ -53,12 +68,14 @@
     </entity>
     <entity name="Stock" representedClassName=".Stock" syncable="YES">
         <attribute name="ticker" attributeType="String" syncable="YES"/>
+        <relationship name="chartPoints" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ChartPoint" inverseName="stock" inverseEntity="ChartPoint" syncable="YES"/>
         <relationship name="dividend" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Dividend" inverseName="stock" inverseEntity="Dividend" syncable="YES"/>
         <relationship name="quote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quote" inverseName="stock" inverseEntity="Quote" syncable="YES"/>
     </entity>
     <elements>
         <element name="Dividend" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Quote" positionX="-54" positionY="63" width="128" height="660"/>
-        <element name="Stock" positionX="-36" positionY="153" width="128" height="90"/>
+        <element name="Stock" positionX="-36" positionY="153" width="128" height="105"/>
+        <element name="ChartPoint" positionX="-45" positionY="135" width="128" height="240"/>
     </elements>
 </model>

@@ -38,6 +38,42 @@ extension Stock {
     @NSManaged public var ticker: String
     @NSManaged public var dividend: NSOrderedSet?
     @NSManaged public var quote: Quote?
+    @NSManaged public var chartPoints: NSOrderedSet?
+    
+}
+
+// MARK: Generated accessors for chartPoints
+extension Stock {
+    
+    @objc(insertObject:inChartPointsAtIndex:)
+    @NSManaged public func insertIntoChartPoints(_ value: ChartPoint, at idx: Int)
+    
+    @objc(removeObjectFromChartPointsAtIndex:)
+    @NSManaged public func removeFromChartPoints(at idx: Int)
+    
+    @objc(insertChartPoints:atIndexes:)
+    @NSManaged public func insertIntoChartPoints(_ values: [ChartPoint], at indexes: NSIndexSet)
+    
+    @objc(removeChartPointsAtIndexes:)
+    @NSManaged public func removeFromChartPoints(at indexes: NSIndexSet)
+    
+    @objc(replaceObjectInChartPointsAtIndex:withObject:)
+    @NSManaged public func replaceChartPoints(at idx: Int, with value: ChartPoint)
+    
+    @objc(replaceChartPointsAtIndexes:withChartPoints:)
+    @NSManaged public func replaceChartPoints(at indexes: NSIndexSet, with values: [ChartPoint])
+    
+    @objc(addChartPointsObject:)
+    @NSManaged public func addToChartPoints(_ value: ChartPoint)
+    
+    @objc(removeChartPointsObject:)
+    @NSManaged public func removeFromChartPoints(_ value: ChartPoint)
+    
+    @objc(addChartPoints:)
+    @NSManaged public func addToChartPoints(_ values: NSOrderedSet)
+    
+    @objc(removeChartPoints:)
+    @NSManaged public func removeFromChartPoints(_ values: NSOrderedSet)
     
 }
 
@@ -75,4 +111,3 @@ extension Stock {
     @NSManaged public func removeFromDividend(_ values: NSOrderedSet)
     
 }
-
