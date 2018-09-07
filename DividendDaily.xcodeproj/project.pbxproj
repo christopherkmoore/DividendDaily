@@ -21,6 +21,7 @@
 		03180A7520F444010048CDC0 /* PortofolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03180A7420F444010048CDC0 /* PortofolioViewModel.swift */; };
 		033918B720F46D5D0004E8EB /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033918B620F46D5D0004E8EB /* Quote.swift */; };
 		03962CFF211BB3F000C7BFD0 /* Utilities + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03962CFE211BB3F000C7BFD0 /* Utilities + Extensions.swift */; };
+		03D2447C212E406000845175 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2447B212E405F00845175 /* Chart.swift */; };
 		03D49469211F677F00813D26 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D49468211F677F00813D26 /* CoreDataStack.swift */; };
 		03DE25F8210F48A2008AFCF6 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25F7210F48A2008AFCF6 /* HistoryViewController.swift */; };
 		03DE25FA210F48AD008AFCF6 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE25F9210F48AD008AFCF6 /* HistoryViewModel.swift */; };
@@ -71,6 +72,7 @@
 		03180A7420F444010048CDC0 /* PortofolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortofolioViewModel.swift; sourceTree = "<group>"; };
 		033918B620F46D5D0004E8EB /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		03962CFE211BB3F000C7BFD0 /* Utilities + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utilities + Extensions.swift"; sourceTree = "<group>"; };
+		03D2447B212E405F00845175 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		03D49468211F677F00813D26 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		03DE25F7210F48A2008AFCF6 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		03DE25F9210F48AD008AFCF6 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		032C0F9221192F1E00E1BDFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				03D2447B212E405F00845175 /* Chart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				03180A6920F2FA300048CDC0 /* Stock.swift in Sources */,
 				033918B720F46D5D0004E8EB /* Quote.swift in Sources */,
 				03F92859212B994700F6DE00 /* DividendMetricsTableViewCell.swift in Sources */,
+				03D2447C212E406000845175 /* Chart.swift in Sources */,
 				03E1CA2221289750002DCA3E /* StockDetailViewModel.swift in Sources */,
 				03DE25FF210F50E3008AFCF6 /* HistoryTableViewCell.swift in Sources */,
 				03DE25FA210F48AD008AFCF6 /* HistoryViewModel.swift in Sources */,

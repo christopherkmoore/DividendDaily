@@ -29,6 +29,7 @@ class StockDetailViewController: UIViewController {
             viewModel.getChartData(for: stock)
         }
         registerCells()
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -71,12 +72,21 @@ extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate 
         }
         
         switch indexPath.row {
-        case 0: return bannerCell
+        case 0:
+            DispatchQueue.main.async {
+                bannerCell.set(using: self.stock)
+            }
+            return bannerCell
         case 1: return marketMetricsCell
         case 2: return dividendMetricsCell
         case 3: return modifySharesCell
         default: return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height = UIScreen.main.bounds.height / 3
+        return height
     }
     
 }
