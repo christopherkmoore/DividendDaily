@@ -12,9 +12,20 @@ import UIKit
 class StockDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var stock: Stock!
+    var stock: Stock! {
+        didSet {
+            // wait for API call to finish to load the chart
+            if stock.chartPoints != nil,
+                tableView != nil {
+                DispatchQueue.main.async {
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                }
+            }
+        }
+    }
     weak var stockDelegate: StockManagerDelegate!
     var viewModel: StockDetailViewModel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +35,21 @@ class StockDetailViewController: UIViewController {
             StockManager.shared.addDelegate(stockDelegate)
         }
         
-        if viewModel == nil {
-            self.viewModel = StockDetailViewModel(using: stock)
-            viewModel.getChartData(for: stock)
-        }
         registerCells()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    public func getChartData(for stock: Stock) {
+        IEXApiClient.shared.getChartData(for: stock) { (success, stock) in
+            guard
+                let stock = stock,
+                let chartPoints = stock.chartPoints
+                else { return }
+            StockManager.shared.update(stock, using: chartPoints)
+            self.stock = stock
+        }
     }
 }
 

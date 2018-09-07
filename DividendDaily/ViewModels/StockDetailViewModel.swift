@@ -16,14 +16,5 @@ class StockDetailViewModel {
         self.stock = stock
     }
     
-    public func getChartData(for stock: Stock) {
-        IEXApiClient.shared.getChartData(for: stock) { (success, stock) in
-            guard
-                let stock = stock,
-                let chartPoints = stock.chartPoints
-            else { return }
-            StockManager.shared.update(stock, using: chartPoints)
-            self.stock = stock
-        }
-    }    
+        
 }

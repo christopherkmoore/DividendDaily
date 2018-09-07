@@ -22,9 +22,6 @@ class BannerTableViewCell: UITableViewCell {
     public func set(using stock: Stock) {
         guard let points = stock.chartPoints?.array as? [ChartPoint] else { return }
         
-        let screenHeight = UIScreen.main.bounds.height
-        let screenWidth = UIScreen.main.bounds.width
-        
         let chart = Chart(frame: self.frame, with: points)
         chart.backgroundColor = .white
         addSubview(chart)
