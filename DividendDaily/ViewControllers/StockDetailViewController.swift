@@ -12,6 +12,8 @@ import UIKit
 class StockDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    weak var stockDelegate: StockManagerDelegate!
+    var viewModel: StockDetailViewModel!
     var stock: Stock! {
         didSet {
             // wait for API call to finish to load the chart
@@ -23,8 +25,6 @@ class StockDetailViewController: UIViewController {
             }
         }
     }
-    weak var stockDelegate: StockManagerDelegate!
-    var viewModel: StockDetailViewModel!
     
     
     override func viewDidLoad() {

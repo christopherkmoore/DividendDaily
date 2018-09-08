@@ -29,11 +29,16 @@ class StockTableViewCell: UITableViewCell {
             print("Index out of bounds for stocks array at \(index)")
             return
         }
+        // Change price to use more 
+        if let priceSource = stock.quote?.latestSource, priceSource == "Close" {
+            priceLabel.text = "$" + String(format: "%.2f", stock.quote?.close ?? 0)
+        }
         
+        priceLabel.text = "$" + String(format: "%.2f", stock.quote?.latestPrice ?? 0)
+
         stockNameLabel.text = stock.quote?.companyName
         tickerLabel.text = stock.quote?.symbol
         
-        priceLabel.text = "$" + String(format: "%.2f", stock.quote?.latestPrice ?? 0)
         let todaysChange = viewModel.todaysChange(stock)
         
         if todaysChange.first == "-" {

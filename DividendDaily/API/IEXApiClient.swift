@@ -142,23 +142,20 @@ class IEXApiClient {
 
             guard let result = self.getResults(data, response, error) else { return }
             
-            
-            /* this is garbage code and needs debugging */
+            var stocksRefreshed = [Stock]()
             result.forEach { (key, value) in
                 
-                let something = stocks.map { ( stock) -> Stock in
-                    if stock.ticker == key {
-                        do {
-                            let data: Data = try JSONSerialization.data(withJSONObject: value, options: JSONSerialization.WritingOptions.prettyPrinted)
-                            stock.quote = try JSONDecoder().decode(Quote.self, from: data)
-                        } catch let error {
-                            print(error.localizedDescription)
-                        }
+                for stock in stocks where stock.ticker == key {
+                    do {
+                        let data: Data = try JSONSerialization.data(withJSONObject: value, options: JSONSerialization.WritingOptions.prettyPrinted)
+                        stock.quote = try JSONDecoder().decode(Quote.self, from: data)
+                        stocksRefreshed.append(stock)
+                    } catch let error {
+                        print(error.localizedDescription)
                     }
-                    return stock
                 }
-                completion(true, something)
             }
+            completion(true, stocksRefreshed)
         }.resume()
     }
     
